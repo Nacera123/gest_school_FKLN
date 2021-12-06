@@ -1,8 +1,11 @@
 <?php
 
-require '../class/Classfamille.php';
+require '../class/ClassProf.php';
+
+
 
 ?>
+
 
 
 
@@ -28,7 +31,7 @@ require '../class/Classfamille.php';
 
 
 <div class="header">
-    <h2>ESPACE PARENTS</h2>
+    <h2>ESPACE PROFESSEURS</h2>
 </div>
 
 
@@ -51,67 +54,72 @@ require '../class/Classfamille.php';
 
 
 <div class="bienvenue">
-  <h5><b>Bievenue dans l'espace parents. Ici vous trouverez le detail de la scolarité de votre (vos) enfant(s)<b><h5>
+  <h5><b>EVALUATION DES ELEVES<b><h5>
 </div> 
 
 
-<div class= "corps">
-    <div class ="gauche">
-
-        <div class = "infperso">
-            <br><h5>Mes informations personnelles</h5><br><br>
-                <tr>
-
-                    <li> NOM : <?php echo $FamilleList-> get_NomP()?></li>
-                    <li> PRENOM : <?php echo $FamilleList-> get_PrenomP()?></li>
-                    <li> E-mail : <?php echo $FamilleList-> get_EmailP()?></li>
-                    <li> ADRESSE: <?php echo $FamilleList-> get_AdresseP()?></li>
-                    <li> CODE POSTAL: <?php echo $FamilleList-> get_CdP()?></li>
-                    <li> ID PARENT : <?php echo $FamilleList-> get_NumP()?></li>
-                    <li> FRAIS DE SCOLARITE : <?php echo $FamilleList-> get_FraisP()?> Euros </li>
-
-                </tr>
-        </div>
 
 
         <div >
-            
-            <a href =""><button id = "bouton" type="button" class="btn btn-primary">Suppression compte </button></a>
-            
-            <?php include 'bodyenfant.php'?>
-        </div>
+            <div class= "corps">
+                <div class = "infperso">
+                    <br><h5>Mes informations personnelles</h5><br><br>
+                    <tr>
 
-    </div>
-</div>
+                        <li> NOM : <?php echo $ProfList-> get_Nom_professeur()?></li>
+                        <li> PRENOM : <?php echo $ProfList-> get_Prenom_professeur()?></li>
+                        <li> MATIERE : <?php echo $ProfList-> get_Nom_matiere()?></li>
 
-
-
-<div class= "droite">
-    <div class ="formation">
-        <h3 class="card-header" id= "formation">TOUTES NOS FORMATIONS </h3>
-                        
-            <tr class="list-group list-group-flush">
-                <td class="list-group-item"></td>
-                <td class="list-group-item">frais  </td>
-            </tr>
-        
-    </div>
-</div>
-</div>
-
-<!--div blank pour plus de fluidité-->
-
-<div class="blank">
-  <p></p>
-</div>
+                    </tr>
+                    
+                    
+                </div>
 
 
+                <div class="inscription">
+                    <form>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputEmail4">NOM DE L'ELEVE</label>
+                            <input type="text" class="form-control" id="inputEmail4" placeholder="">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputPassword4">PRENOM DE L'ELEVE</label>
+                            <input type="text" class="form-control" id="inputPassword4" placeholder="">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputPassword4">NUMERO DE L'ETUDIANT</label>
+                            <input type="number" class="form-control" id="inputPassword4" placeholder="">
+                          </div>
+
+                        </div>
+                        <div class="form-group">
+                          <label for="inputAddress">MATIERE</label>
+                          <input type="text" class="form-control" id="inputAddress" placeholder="">
+                        </div>
+                        <div class="form-group">
+                          <label for="inputAddress2">MOYENNE</label>
+                          <input type="number" class="form-control" id="inputAddress2" placeholder="">
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputCity">APPRECIATION</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" value="Soumettre">
+                      </form>
 
 
 
-<!--footer-->
 
-<footer>
+                </div>
+
+
+            </div>
+            <footer>
     <footer class="text-center text-lg-start bg-light text-muted">
     <HR>
       <section class="">
@@ -180,19 +188,12 @@ require '../class/Classfamille.php';
     
     
     
-    <!--                                           !!  C'EST LA FIN DU SITE !!                                                               -->
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
-</body>
-</html>
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
 </body>
 </html>
-
-
-
 
 
 <style>
@@ -271,8 +272,5 @@ require '../class/Classfamille.php';
 
 }
 
-.blank{
-  padding:40px;
-}
 
 </style>

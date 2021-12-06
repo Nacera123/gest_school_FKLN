@@ -1,0 +1,142 @@
+
+* {
+    box-sizing: border-box;
+}
+  
+/*                  style de toute la page                       */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+
+/*                          Header                               */
+
+
+.header {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    
+}
+
+.header h5{
+    font-family: system-ui;
+}
+
+.side {
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: white;
+    padding: 80px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+}
+
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: white;
+    color: black;
+    padding-top: 90px;
+    padding-right: 50px;
+}
+
+
+/*                          Navbar                               */
+.navbar {
+    overflow: hidden;
+    background-color: white;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.navbar a {
+    display: block;
+    color: #2C74FF;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+
+}
+
+/*.navbar a:hover {
+    background-color:lightskyblue;
+    color: black;
+}*/
+
+/*.navbar a.active {
+    background-color: #802;
+    color: white;
+}*/
+
+
+
+/*                     Blank                                       */
+
+.blank{
+    padding: 20px;
+}
+
+.blank2{
+    padding : 100px ;
+}
+
+
+/*                      bloc1                                      */
+
+.bloc1 {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    border: solid ;
+    border-width:thick; 
+    border-color:#2C74FF ;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.bloc-side {
+    -ms-flex: 44%; /* IE10 */
+    flex: 44%;
+    background-color: white;
+    
+}
+
+.bloc-verbatim { 
+    padding-top: 90px; 
+    padding-right: 10px; 
+    -ms-flex: 56%; /* IE10 */
+    flex: 56%;
+    background-color: white;
+    color:black;
+   
+}
+
+
+/*                         informations                          */
+.informations{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/*                       Bloc presentation parents                                  */
+
+
+  .parents {
+    padding: 80px;
+    text-align: center;
+    background: #2C74FF;
+    color: white;
+  }
+
+  .parents h2 {
+    font-size: 50px;
+  }
+
+

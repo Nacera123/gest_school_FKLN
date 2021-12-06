@@ -1,9 +1,9 @@
 <?php
 
-require '../class/Classfamille.php';
+require '../class/ClassEnfant.php';
+
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ require '../class/Classfamille.php';
 
 
 <div class="header">
-    <h2>ESPACE PARENTS</h2>
+    <h2>ESPACE ELEVE</h2>
 </div>
 
 
@@ -51,65 +51,72 @@ require '../class/Classfamille.php';
 
 
 <div class="bienvenue">
-  <h5><b>Bievenue dans l'espace parents. Ici vous trouverez le detail de la scolarité de votre (vos) enfant(s)<b><h5>
-</div> 
+  <h5><b>Bievenue dans ton espace personnel. Ici tu trouvera le detail de tes bulletins scolaires<b><h5>
+</div>
 
 
-<div class= "corps">
-    <div class ="gauche">
 
-        <div class = "infperso">
-            <br><h5>Mes informations personnelles</h5><br><br>
-                <tr>
 
-                    <li> NOM : <?php echo $FamilleList-> get_NomP()?></li>
-                    <li> PRENOM : <?php echo $FamilleList-> get_PrenomP()?></li>
-                    <li> E-mail : <?php echo $FamilleList-> get_EmailP()?></li>
-                    <li> ADRESSE: <?php echo $FamilleList-> get_AdresseP()?></li>
-                    <li> CODE POSTAL: <?php echo $FamilleList-> get_CdP()?></li>
-                    <li> ID PARENT : <?php echo $FamilleList-> get_NumP()?></li>
-                    <li> FRAIS DE SCOLARITE : <?php echo $FamilleList-> get_FraisP()?> Euros </li>
 
-                </tr>
-        </div>
+
 
 
         <div >
-            
-            <a href =""><button id = "bouton" type="button" class="btn btn-primary">Suppression compte </button></a>
-            
-            <?php include 'bodyenfant.php'?>
-        </div>
+            <div class= "corps">
+                <div class = "infperso">
+                    <br><h5>Mes informations personnelles</h5><br><br>
+                    <tr>
 
-    </div>
-</div>
+                        <li> NOM : <?php echo $EnfantList-> get_Nom()?></li>
+                        <li> PRENOM : <?php echo $EnfantList-> get_Prenom()?></li>
+                        <li> DATE DE NAISSANCE : <?php echo $EnfantList-> get_date()?></li>
+                        <li> NUMERO ETUDIANT : <?php echo $EnfantList-> get_Numero()?></li>
+
+                    </tr>
+                    
+                    
+                </div>
+
+
+                <div class ="bulletin">
+                    <table class ="table">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>MOYENNE</td>
+                                <td>APPRECIETION</td>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <?php foreach ($NoteList as $note) :?>
+                            <tr>
+                                <td><?= $note-> get_note()?></td>
+                                <td><?= $note->  get_appreciation()?></td>
+                                <td><?= $note-> matiere?></td>
+
+                            </tr>
+                            <?php endforeach?>
 
 
 
-<div class= "droite">
-    <div class ="formation">
-        <h3 class="card-header" id= "formation">TOUTES NOS FORMATIONS </h3>
-                        
-            <tr class="list-group list-group-flush">
-                <td class="list-group-item"></td>
-                <td class="list-group-item">frais  </td>
-            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+
+
+                </div>
+
+
+            </div>
         
-    </div>
-</div>
-</div>
-
-<!--div blank pour plus de fluidité-->
-
-<div class="blank">
-  <p></p>
-</div>
 
 
-
-
-
-<!--footer-->
+            <!--footer-->
 
 <footer>
     <footer class="text-center text-lg-start bg-light text-muted">
@@ -180,15 +187,12 @@ require '../class/Classfamille.php';
     
     
     
-    <!--                                           !!  C'EST LA FIN DU SITE !!                                                               -->
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
 </body>
-</html>
-
-
-</body>
+        </div>
+       
+    </body>
 </html>
 
 
@@ -196,12 +200,9 @@ require '../class/Classfamille.php';
 
 
 <style>
-* {
-    box-sizing: border-box;
-}
 
 
-/*                       Header                                 */
+    /*                       Header                                 */
 
 
 .header {
@@ -271,8 +272,5 @@ require '../class/Classfamille.php';
 
 }
 
-.blank{
-  padding:40px;
-}
 
 </style>
