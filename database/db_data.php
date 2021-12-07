@@ -37,7 +37,7 @@ class DBData {
     }
 
 
-    public function get_login() {
+    public function login() {
         $query = "SELECT * FROM utilisateur WHERE email = :email AND mot_de_passe = :mot_de_passe";
         $reslt = $this->dbh ->prepare($query);  
         $reslt->execute(  
@@ -49,18 +49,20 @@ class DBData {
 
         $user = $reslt->fetch(PDO::FETCH_ASSOC);
         $_SESSION["email"] = $_POST["email"]; 
+        $_SESSION["id_utilisateur"] = $user["id_utilisateur"];
+
 
         // var_dump ($user['fonction']);exit;
       
             // vérifier si l'utilisateur est un administrateur ou un utilisateur
             if ($user['fonction'] == 'admin') {
-                header('location:admin.php');		  
+                header('location:inscription');		  
             }elseif($user['fonction'] == 'parent') {
-                header('location:parent.php');    
+                header('location:index1');    
             }elseif($user['fonction'] == 'professeur') {
                 header('location:professeur.php'); 
             }elseif($user['fonction'] == 'etudiant') {
-                header('location:etudiant.php'); 
+                header('location:inscription'); 
             }else{
             $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
         }

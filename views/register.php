@@ -79,7 +79,7 @@
               {
                 echo "<div class='sucess'>
                       <h3>Vous êtes inscrit avec succès.</h3>
-                      <p>Cliquez ici pour vous <a href='./views/login.php'> se connecter</a></p>
+                      <p>Cliquez ici pour vous <a href='connexion'> se connecter</a></p>
                 </div>";
               }
           }

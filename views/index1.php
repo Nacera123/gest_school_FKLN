@@ -10,14 +10,14 @@
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <div class="navbar">
                     <div>
-                    <a href="index1"> <button class="btn btn-outline-primary" type="submi>">Acceuil</button></a>
+                    <a href="index1"> <button class="btn btn-outline-primary" type="submit">Acceuil</button></a>
                     <div display= "none">
             
                     </div>
                     </div>
             
-                    <a href="inscription"> <button class="btn btn-outline-primary" type="submi>">Inscription</button></a>
-                    <a href="connexion"> <button class="btn btn-outline-primary" type="submi>">Connexion</button></a> 
+                    <a href="inscription"> <button class="btn btn-outline-primary" type="submit">Inscription</button></a>
+                    <a href="connexion"> <button class="btn btn-outline-primary" type="submit">Connexion</button></a> 
             
             
                 
