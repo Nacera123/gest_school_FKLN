@@ -6,9 +6,10 @@ class HomeController extends MainController
     public function index()
     {
         $DBData = new DBData();
-
+        $cursusList = $DBData->getformation() ;
 
         return $this->show('index1', [
+            'cursusList' => $cursusList
         ]);
     }
 
@@ -22,5 +23,6 @@ class HomeController extends MainController
 
     public function index1(){
         return $this->show('index1');
+        
     }
 }

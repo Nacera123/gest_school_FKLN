@@ -1,5 +1,8 @@
 <?php
 
+
+require __DIR__ . './class/cursus.php';
+
 require __DIR__ ."./database/db_data.php";
 
 require __DIR__ . './controller/MainController.php';
@@ -13,7 +16,7 @@ if (isset($_GET['_url'])) {
     $url = '/';
 }
 
-if ($url === '/') { // Accueil
+if ($url === '/' || $url==='/acceuil') { // Accueil
     $controller->index();
 } else if($url==='/inscription'){
     $controller->register();

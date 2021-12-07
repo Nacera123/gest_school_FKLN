@@ -10,7 +10,7 @@
             <div class="shadow p-3 mb-5 bg-body rounded">
                 <div class="navbar">
                     <div>
-                    <a href="index1"> <button class="btn btn-outline-primary" type="submit">Acceuil</button></a>
+                    <a href="acceuil"> <button class="btn btn-outline-primary" type="submit">Acceuil</button></a>
                     <div display= "none">
             
                     </div>
@@ -38,11 +38,11 @@
                 </div><br><br><br><br>
                 <div class ="lescursus">
                     <ul>
-                        <li><h2>Scientifique</h2></li>
-                        <li><h2>Mathématique</h2></li>
-                        <li><h2>Littérature</h2></li>
-                        <li><h2>Science économique et sociale</h2></li>
-                        <li><h2>Management et gestion</h2></li>
+
+                        <?php foreach ($viewVars['cursusList'] as $cursus) : ?>
+                                
+                            <li class="list-group-item"><h2><?=$cursus->getnom_cursusC()?> </h2></li>
+                        <?php endforeach; ?>
 
                     </ul>
                 </div>
