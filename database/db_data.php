@@ -62,7 +62,7 @@ class DBData {
             }elseif($user['fonction'] == 'professeur') {
                 header('location:professeur.php'); 
             }elseif($user['fonction'] == 'etudiant') {
-                header('location:inscription'); 
+                header('location:enfant'); 
             }else{
             $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
         }

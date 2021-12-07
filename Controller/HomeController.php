@@ -25,4 +25,9 @@ class HomeController extends MainController
         return $this->show('index1');
         
     }
+
+    public function enfant(){
+        return $this->show('enfant');
+  
+    }
 }

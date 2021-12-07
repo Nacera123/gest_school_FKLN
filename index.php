@@ -26,6 +26,8 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
 }else if($url==='/index1'){
     $controller->index1();
 
+}else if($url==='/enfant'){
+    $controller->enfant();
 }else  {
     http_response_code(404);
 }

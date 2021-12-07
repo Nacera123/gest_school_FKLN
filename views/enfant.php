@@ -1,9 +1,4 @@
-<?php
 
-require '../class/ClassEnfant.php';
-
-
-?>
 
 
 <!DOCTYPE html>
@@ -27,9 +22,6 @@ require '../class/ClassEnfant.php';
 <body>
 
 
-<div class="header">
-    <h2>ESPACE ELEVE</h2>
-</div>
 
 
 <!--Navbar-->
@@ -67,10 +59,10 @@ require '../class/ClassEnfant.php';
                     <br><h5>Mes informations personnelles</h5><br><br>
                     <tr>
 
-                        <li> NOM : <?php echo $EnfantList-> get_Nom()?></li>
-                        <li> PRENOM : <?php echo $EnfantList-> get_Prenom()?></li>
-                        <li> DATE DE NAISSANCE : <?php echo $EnfantList-> get_date()?></li>
-                        <li> NUMERO ETUDIANT : <?php echo $EnfantList-> get_Numero()?></li>
+                        <li> NOM : </li>
+                        <li> PRENOM :</li>
+                        <li> DATE DE NAISSANCE :</li>
+                        <li> NUMERO ETUDIANT : </li>
 
                     </tr>
                     
@@ -90,14 +82,6 @@ require '../class/ClassEnfant.php';
                         </thead>
 
                         <tbody>
-                            <?php foreach ($NoteList as $note) :?>
-                            <tr>
-                                <td><?= $note-> get_note()?></td>
-                                <td><?= $note->  get_appreciation()?></td>
-                                <td><?= $note-> matiere?></td>
-
-                            </tr>
-                            <?php endforeach?>
 
 
 
