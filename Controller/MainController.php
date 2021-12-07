@@ -9,10 +9,10 @@ class MainController
         // include __DIR__ . '/../views/' . $viewName . '.tpl.php';
         // include __DIR__ . '/../views/footer.tpl.php';
 
-
-
-
-        include __DIR__. '/../views/register.php';
+        include __DIR__. '/../views/header.php';
+        include __DIR__. '/../views/'.$viewName.'.php';
+        
+        // include __DIR__. '/../views/register.php';
         // include __DIR__. '../class.cursusprof.php';
         // include __DIR__. '../class.etudiant.php';
         // include __DIR__. '../class.matiere.php';

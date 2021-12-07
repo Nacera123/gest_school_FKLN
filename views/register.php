@@ -1,33 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-      <link href="../css/style.css" rel="stylesheet" >
-
-      <link href="https://bulma.io/documentation">
-
-    
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-      <title>Document</title>
-  </head>
-
-  <body>
-    <!--Header-->
-
-    <div class="header">
-      <div class="side">
-      <a href="https://www.education.gouv.fr/"> <img src="./img/Logo.png"> </a>
-      </div>
-      <div class="main">
-      <h5><b> Collège FKLN - 74 avenue JEAN Francois 75015 Paris - 01 55 66 41 77 </b></h5>
-      </div>
-    </div>
 
 
 
@@ -39,7 +9,7 @@
       <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="navbar">
           <div>
-          <a href="index1.php"> <button class="btn btn-outline-primary" type="submi>">Revenir a la page d'Acceuil</button></a>
+          <a href="index1"> <button class="btn btn-outline-primary" type="submi>">Revenir a la page d'Acceuil</button></a>
           <div display= "none">
     
         
@@ -59,8 +29,6 @@
 
 
         <?php
-        require ("../database/db_data.php");
-
 
           if (isset($_REQUEST['nom'], $_REQUEST['prenom'], $_REQUEST['email'], $_REQUEST['mot_de_passe'], $_REQUEST['mobile'], $_REQUEST['adresse'], $_REQUEST['code_postal'], $_REQUEST['fonction']))
           {
@@ -158,11 +126,11 @@
             <div class="form-group">
               <label for="selection">Une liste select</label>
               <select id="selection" class="form-control" name ="fonction">
-                <option value="">Votre Fonction</option>
+                <option value="" name ="fonction">Votre Fonction</option>
                 <optgroup label="Etes-vous?">
-                  <option value="">Etudiant</option>
-                  <option value="">Professeur</option>
-                  <option value="">Parent d'eleve</option>
+                  <option value="etudiant" name ="fonction">Etudiant</option>
+                  <option value="professeur"name ="fonction">Professeur</option>
+                  <option value="parent"name ="fonction">Parent d'eleve</option>
                 </optgroup>
               </select>
             </div><br><br><br>

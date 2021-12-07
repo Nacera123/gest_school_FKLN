@@ -7,17 +7,20 @@ class HomeController extends MainController
     {
         $DBData = new DBData();
 
-        // $categoryList = $DBData->getSidebarCategories();
 
-        // $authorList = $DBData->getSidebarAuthors();
-
-        // $articleList = $DBData->getAllArticles();
-
-        return $this->show('register', [
-            // 'categoryList' => $categoryList,
-            // 'authorList' => $authorList,
-            // 'articleList' => $articleList
+        return $this->show('index1', [
         ]);
     }
 
+    public function register(){
+        return $this->show('register');
+    }
+
+    public function connect(){
+        return $this->show('connect');
+    }
+
+    public function index1(){
+        return $this->show('index1');
+    }
 }
