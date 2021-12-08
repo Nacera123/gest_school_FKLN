@@ -56,7 +56,7 @@ class DBData {
       
             // vérifier si l'utilisateur est un administrateur ou un utilisateur
             if ($user['fonction'] == 'admin') {
-                header('location:inscription');		  
+                header('location:indexcrud');		  
             }elseif($user['fonction'] == 'parent') {
                 header('location:index1');    
             }elseif($user['fonction'] == 'professeur') {

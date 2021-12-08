@@ -30,4 +30,13 @@ class HomeController extends MainController
         return $this->show('enfant');
   
     }
+
+    public function indexcrud(){
+        return $this->show1('indexcrud');
+    }
+
+    public function userscrud(){
+        return $this->show1('users');
+    }
+
 }

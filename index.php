@@ -28,7 +28,17 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
 
 }else if($url==='/enfant'){
     $controller->enfant();
-}else  {
+
+// }else if($url==='/crud'){
+//     $controller->crud();    
+
+}else if($url==='/indexcrud'){
+    $controller->indexcrud();    
+
+}else if($url==='/users'){
+    $controller->userscrud();    
+
+}else {
     http_response_code(404);
 }
 
