@@ -39,4 +39,8 @@ class HomeController extends MainController
         return $this->show1('users');
     }
 
+    public function insertcrud(){
+        return $this->show1('insert');
+    }
+
 }

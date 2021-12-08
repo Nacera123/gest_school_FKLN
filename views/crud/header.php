@@ -27,7 +27,7 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="indexcrud">Accueil</a></li>
-          <li><a href="insert.php">Ajouter un utilisateur</a></li> 
+          <li><a href="insert">Ajouter un utilisateur</a></li> 
           <li><a href="users">Liste des utilisateurs</a></li>
         </ul>
         

@@ -38,7 +38,10 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
 }else if($url==='/users'){
     $controller->userscrud();    
 
-}else {
+}else if($url==='/insert'){
+    $controller->insertcrud();    
+
+}else{
     http_response_code(404);
 }
 

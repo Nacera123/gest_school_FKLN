@@ -2,8 +2,6 @@
 
 require_once 'connect.php';
 
-require_once 'header.php';
-
 
 ?>
 <div class="container">
@@ -337,15 +335,14 @@ require_once 'header.php';
 	
 		if(isset($_POST['addnew6'])){
 
-			if( empty($_POST['matiere']) || empty($_POST['id_utilisateur'])|| empty($_POST['id_cursus'])){
+			if( empty($_POST['matiere']) || empty($_POST['id_cursus'])){
 				echo "Champs obligatoires"; 
 			}else{		
 				$matiere 			= $_POST['matiere'];
-				$id_utilisateur	 	= $_POST['id_utilisateur'];
 				$id_cursus 			= $_POST['id_cursus'];
 
-				$sql6 = "INSERT INTO matiere (matiere,id_utilisateur,id_cursus) 
-				VALUES('$matiere','$id_utilisateur','$id_cursus')";
+				$sql6 = "INSERT INTO matiere (matiere,id_cursus) 
+				VALUES('$matiere','$id_cursus')";
 
 				if( $con->query($sql6) === TRUE){
 					echo "<div class='alert alert-success'>Nouvel utilisateur ajouté avec succès</div>";
@@ -363,9 +360,6 @@ require_once 'header.php';
 					<label for="matiere">MATIERE</label>
 					<input type="text" id="matiere"  name="matiere" class="form-control"><br>
 
-					<label for="id_utilisateur">Id_utilisateur</label>
-					<input type="number"  name="id_utilisateur" id="id_utilisateur" class="form-control"><br>
-
 					<label for="id_cursus">Id_cursus</label>
 					<input type="text" id="id_cursus"  name="id_cursus" class="form-control"><br>
 
@@ -377,6 +371,90 @@ require_once 'header.php';
 			</div>
 		</div>
 	</div><br><br>
+
+
+	<?php 
+	
+		if(isset($_POST['addnew7'])){
+
+			if( empty($_POST['nom_parent']) || empty($_POST['prenom_parent'])|| empty($_POST['mobile'])
+			|| empty($_POST['adresse'])|| empty($_POST['code_postal'])|| empty($_POST['nom_enfant'])|| empty($_POST['prenom_enfant'])
+			|| empty($_POST['dn_enfant'])|| empty($_POST['id_cursus'])|| empty($_POST['id_etudiant'])){
+				echo "Champs obligatoires"; 
+			}else{		
+				$nom_parent 		= $_POST['nom_parent'];
+				$prenom_parent 		= $_POST['prenom_parent'];
+				$mobile				= $_POST['mobile'];
+				$adresse 			= $_POST['adresse'];
+				$code_postal 		= $_POST['code_postal'];
+				$nom_enfant 		= $_POST['nom_enfant'];
+				$prenom_enfant		= $_POST['prenom_enfant'];
+				$dn_enfant 			= $_POST['dn_enfant'];
+				$id_cursus			= $_POST['id_cursus'];
+				$id_etudiant 		= $_POST['id_etudiant'];
+
+
+
+
+				$sql6 = "INSERT INTO famille (nom_parent,prenom_parent,mobile, adresse, code_postal,
+				nom_enfant, prenom_enfant, dn_enfant, id_cursus, id_etudiant) 
+				VALUES('$nom_parent','$prenom_parent','$mobile','$adresse','$code_postal',
+				'$nom_enfant','$prenom_enfant','$dn_enfant','$id_cursus','$id_etudiant')";
+
+				if( $con->query($sql6) === TRUE){
+					echo "<div class='alert alert-success'>Nouvel utilisateur ajouté avec succès</div>";
+				}else{
+					echo "<div class='alert alert-danger'>Error: ajout impossible</div>";
+				}
+			}
+		}
+	?>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="box">
+			<h3><i class="glyphicon glyphicon-plus"></i>&nbsp;Table FAMILLE</h3> 
+			<form action="" method="POST">
+				<label for="nom_parent">NOM DU PARENT</label>
+				<input type="text" id="nom_parent"  name="nom_parent" class="form-control"><br>
+
+				<label for="prenom_parent">PRENOM DU PARENT</label>
+				<input type="text" id="prenom_parent"  name="prenom_parent" class="form-control"><br>
+
+				<label for="mobile">TELEPHONE DU PARENT</label>
+				<input type="text" id="mobile"  name="mobile" class="form-control"><br>
+
+				<label for="adresse">ADRESSE DU PARENT</label>
+				<input type="text" id="adresse"  name="adresse" class="form-control"><br>
+
+				<label for="code_postal">CODE POSTAL</label>
+				<input type="number" id="code_postal"  name="code_postal" class="form-control"><br>
+
+				<label for="nom_enfant">NOM DE L'ENFANT</label>
+				<input type="text" id="nom_enfant"  name="nom_enfant" class="form-control"><br>
+
+				<label for="prenom_enfant">PRENOM DE L'ENFANT</label>
+				<input type="text" id="prenom_enfant"  name="prenom_enfant" class="form-control"><br>
+
+				<label for="dn_enfant">DATE DE NAISSANCE DE L'ENFANT</label>
+				<input type="date" id="dn_enfant"  name="dn_enfant" class="form-control"><br>
+
+				<label for="id_cursus">Id_cursus</label>
+				<input type="number" id="id_cursus"  name="id_cursus" class="form-control"><br>
+
+				<label for="id_etudiant">Id_Etudiant</label>
+				<input type="number" id="id_etudiant"  name="id_etudiant" class="form-control"><br>
+
+
+
+
+				<br>
+
+				<input type="submit" name="addnew7" class="btn btn-success" value="Ajouter">
+			</form>
+		</div>
+	</div>
+</div><br><br>
+
 
 
 
