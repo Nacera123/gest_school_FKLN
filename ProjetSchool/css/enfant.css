@@ -1,0 +1,126 @@
+
+/*                       Header                                 */
+
+
+.header {
+    padding: 80px;
+    /* background: #2cb2ff; */
+    color: white;
+    height: 200px;
+    display:-ms-flexbox; 
+    display: flex;
+    flex:100%;
+  }
+
+.side{
+    height: 100px; width: 200px;
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: white;
+
+
+    
+}
+  .main {
+    flex-wrap: 80%;
+    flex: 80%;
+    font-size: 60px;
+    color: black;
+  }
+
+img{
+    height: 100px;
+    width: 100px;
+ 
+}
+
+
+/*                                 bienvenue                               */
+
+.bienvenue{
+padding: 50px;
+text-align:center;
+}
+
+
+/* corps de la page */
+.corps{
+    height: 1000px;
+    display:-ms-flexbox; 
+    display: flex;
+    flex:100%;
+}    
+
+
+/* coté gauche                                                             */
+.infperso {
+    width: 300px;
+    background-color:#dce7f5;
+    margin-left: 10px;
+    flex-wrap: 20%;
+    flex: 20%;
+    height: 1000px;
+        
+    }
+
+
+/* coté droit */
+.droite{
+
+    flex-wrap: 80%;
+    flex: 80%;
+    background-color: white;
+    height: 1000px;
+}
+
+.bulletin{
+height: 900px;
+  width: 800px;
+  margin-left: 50px;
+  border: 3px black solid;
+  background-color:#dce7f5;
+}
+
+table {
+    margin-top:10px;
+    border:2px solid black;
+    border-collapse:collapse;
+    width:90%;
+    margin:auto;
+    }
+  
+    thead{
+      background-color:#c6d9f1;
+      border:1px solid black;
+      }
+  
+      tbody {
+      background-color:#FFFFFF;
+      border:1px solid black;
+      color:black;
+      }
+  
+      th {
+      font-family:monospace;
+      border:1px dotted black;
+      padding:5px;
+      background-color:#EFF6FF;
+      width:25%;
+      }
+  
+      td {
+      font-family:sans-serif;
+      font-size:80%;
+      border:1px solid black;
+      padding:5px;
+      text-align:left;
+      }
+  
+
+#bouton{
+    /* background-color: black; */
+    width: 200px; height: 80px;
+    /* margin-top: 50px; */
+    margin-left: 800px;
+
+}

@@ -1,0 +1,113 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+/*                       Header                                 */
+
+.header {
+    padding: 80px;
+    /* background: #2cb2ff; */
+    color: white;
+    height: 200px;
+    display:-ms-flexbox; 
+    display: flex;
+    flex:100%;
+  }
+
+.side{
+    height: 100px; width: 200px;
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: white;
+
+
+    
+}
+  .main {
+    flex-wrap: 80%;
+    flex: 80%;
+    font-size: 60px;
+    color: black;
+  }
+
+/* img{
+    height: 100px;
+    width: 100px;
+ 
+} */
+
+
+
+/*                                 bienvenue                               */
+
+.bienvenue{
+  padding: 50px;
+  text-align:center;
+}
+
+
+
+/* corps de la page */
+  .corps{
+        height: 1000px;
+        display:-ms-flexbox; 
+        display: flex;
+        flex:100%;
+
+
+    }          
+    
+/* coté gauche */
+.infperso {
+    width: 300px;
+    background-color:#dce7f5;
+    margin-left: 10px;
+    flex-wrap: 25%;
+    flex: 25%;
+    height: 1000px;
+        
+    }
+   
+/* coté droit */
+.inscription{
+
+    flex-wrap: 80%;
+    flex: 80%;
+    background-color: white;
+    height: 1000px;
+}
+
+.form-row{
+  height: 800px;
+  width: 600px;
+  margin-left: 250px;
+  margin-top:30px;
+  border: 3px black solid;
+  background-color:#dce7f5;
+}
+
+.form-group {
+    padding:30px;
+    width: 500px;
+}
+
+input{
+    width: 500px; 
+    height: 40px;
+}
+
+#soumettre{
+    width: 300px;
+}
+
+#bouton{
+        /* background-color: black; */
+        width: 200px; height: 80px;
+        /* margin-top: 50px; */
+        margin-left: 800px;
+
+}
+
+
