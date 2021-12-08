@@ -29,7 +29,7 @@
           <li class="active"><a href="indexcrud">Accueil</a></li>
           <li><a href="insert">Ajouter un utilisateur</a></li> 
           <li><a href="users">Liste des utilisateurs</a></li>
-          <li><a href="acceuil">SITE DE L'ECOLE</a></li>
+          <li><a href="acceuil" target="_blank">SITE DE L'ECOLE</a></li>
         </ul>
         
       </div>
