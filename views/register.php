@@ -9,7 +9,7 @@
       <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="navbar">
           <div>
-          <a href="acceuil"> <button class="btn btn-outline-primary" type="submi>">Revenir a la page d'Acceuil</button></a>
+          <a href="acceuil"> <button class="btn btn-outline-primary" type="submit>">Revenir a la page d'Acceuil</button></a>
           <div display= "none">
     
         

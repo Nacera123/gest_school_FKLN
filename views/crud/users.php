@@ -9,6 +9,13 @@
 		$sql="SELECT * FROM cursus";
 		$result = $con->query($sql); 
 
+		if( isset($_POST['delete'])){
+			$sql = "DELETE FROM cursus WHERE id_cursus=" . $_POST['id_cursus'];
+			if($con->query($sql) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+
 		if( $result->num_rows > 0)
 		{ 
 	?>
@@ -59,7 +66,16 @@
 	echo "<div class='container'>";
 
 	$sql1= "SELECT * FROM etudiant";
-	$result1 = $con->query($sql1);  /* Execution de la requete avec retour d'un tableau*/ 
+	$result1 = $con->query($sql1);  
+
+	//pour effacer toute la ligne 
+	if( isset($_POST['delete1'])){
+		$sql1 = "DELETE FROM etudiant WHERE id_etudiant=" . $_POST['id_etudiant'];
+		if($con->query($sql1) === TRUE){
+			echo "<div class='alert alert-success'>Successfully delete  user</div>";
+		}
+	}
+
 
 	/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 	if( $result1->num_rows > 0)
@@ -92,7 +108,7 @@
 			echo "<td>".$row['cursus'] . "</td>";
 			echo "<td>".$row['id_cursus'] . "</td>";
 					
-			echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
+			echo "<td><input type='submit' name='delete1' value='Delete' class='btn btn-danger' /></td>";  
 			echo "<td><a href='edit.php?id=".$row['id_etudiant']."' class='btn btn-info'>Edit</a></td>";
 			echo "</tr>";
 			echo "</form>"; //added 
@@ -123,6 +139,16 @@
 		$sql2="SELECT * FROM professeur";
 		$result2 = $con->query($sql2);  /* Execution de la requete avec retour d'un tableau*/ 
 
+
+		//pour effacer toute la ligne 
+		if( isset($_POST['delete2'])){
+			$sql2 = "DELETE FROM professeur WHERE id_professeur=" . $_POST['id_professeur'];
+			if($con->query($sql2) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+
+
 		/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 		if( $result2->num_rows > 0)
 		{ 
@@ -150,7 +176,7 @@
 				echo "<td>".$row['prenom'] . "</td>";
 				echo "<td>".$row['matiere'] . "</td>";
 				
-				echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
+				echo "<td><input type='submit' name='delete2' value='Delete' class='btn btn-danger' /></td>";  
 				echo "<td><a href='edit.php?id=".$row['id_professeur']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
@@ -179,6 +205,15 @@
 
 		$sql3="SELECT * FROM cursus_professeur";
 		$result3 = $con->query($sql3);  /* Execution de la requete avec retour d'un tableau*/ 
+
+		//pour effacer toute la ligne 
+		if( isset($_POST['delete3'])){
+			$sql3 = "DELETE FROM cursus_professeur WHERE id_cursus=" . $_POST['id_cursus'];
+			if($con->query($sql3) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+		
 
 		/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 		if( $result3->num_rows > 0)
@@ -235,6 +270,16 @@
 		$sql4="SELECT * FROM note";
 		$result4 = $con->query($sql4);  /* Execution de la requete avec retour d'un tableau*/ 
 
+
+		//pour effacer toute la ligne 
+		if( isset($_POST['delete4'])){
+			$sql4 = "DELETE FROM note WHERE id_note=" . $_POST['id_note'];
+			if($con->query($sql4) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+		
+
 		/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 		if( $result4->num_rows > 0)
 		{ 
@@ -269,7 +314,7 @@
 				echo "<td>".$row['id_cursus'] . "</td>";
 
 
-				echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
+				echo "<td><input type='submit' name='delete4' value='Delete' class='btn btn-danger' /></td>";  
 				echo "<td><a href='edit.php?id=".$row['id_note']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
@@ -297,6 +342,15 @@
 
 		$sql5="SELECT * FROM utilisateur";
 		$result5 = $con->query($sql5);  /* Execution de la requete avec retour d'un tableau*/ 
+
+		//pour effacer toute la ligne 
+		if( isset($_POST['delete5'])){
+			$sql5 = "DELETE FROM utilisateur WHERE id_utilisateur=" . $_POST['id_utilisateur'];
+			if($con->query($sql5) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+		
 
 		/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 		if( $result5->num_rows > 0)
@@ -335,7 +389,7 @@
 				echo "<td>".$row['code_postal'] . "</td>";
 				echo "<td>".$row['fonction'] . "</td>";
 				
-				echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
+				echo "<td><input type='submit' name='delete5' value='Delete' class='btn btn-danger' /></td>";  
 				echo "<td><a href='edit.php?id=".$row['id_utilisateur']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
@@ -365,6 +419,15 @@
 		$sql6="SELECT * FROM matiere";
 		$result6 = $con->query($sql6);  /* Execution de la requete avec retour d'un tableau*/ 
 
+		//pour effacer toute la ligne 
+		if( isset($_POST['delete6'])){
+			$sql6 = "DELETE FROM matiere WHERE id_matiere=" . $_POST['id_matiere'];
+			if($con->query($sql6) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+		
+
 		/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 		if( $result5->num_rows > 0)
 		{ 
@@ -391,7 +454,7 @@
 				echo "<td>".$row['matiere'] . "</td>";
 				echo "<td>".$row['id_cursus'] . "</td>";
 				
-				echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
+				echo "<td><input type='submit' name='delete6' value='Delete' class='btn btn-danger' /></td>";  
 				echo "<td><a href='edit.php?id=".$row['id_matiere']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
@@ -417,8 +480,17 @@
 	<?php 
 
 
-		$sql6="SELECT * FROM famille";
-		$result6 = $con->query($sql6);  /* Execution de la requete avec retour d'un tableau*/ 
+		$sql7="SELECT * FROM famille";
+		$result7 = $con->query($sql7);  /* Execution de la requete avec retour d'un tableau*/ 
+
+		//pour effacer toute la ligne 
+		if( isset($_POST['delete7'])){
+			$sql7 = "DELETE FROM famille WHERE id_famille=" . $_POST['id_famille'];
+			if($con->query($sql7) === TRUE){
+				echo "<div class='alert alert-success'>Successfully delete  user</div>";
+			}
+		}
+		
 
 		/*Verification du nombre de lignes du tableau retourné; Si > O alors presence données sinon  absence*/ 
 		if( $result5->num_rows > 0)
@@ -446,7 +518,7 @@
 		</tr>
 		<?php
 			/*Parcours du tableau retourné pour affichage des infos ligne par ligne*/ 
-			while( $row = $result6->fetch_assoc()){ 
+			while( $row = $result7->fetch_assoc()){ 
 				echo "<form action='' method='POST'>";	//added
 				echo "<input type='hidden' value='". $row['id_famille']."' name='id_famille' />"; //added
 				echo "<tr>";
@@ -466,7 +538,7 @@
 
 
 				
-				echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
+				echo "<td><input type='submit' name='delete7' value='Delete' class='btn btn-danger' /></td>";  
 				echo "<td><a href='edit.php?id=".$row['id_famille']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
