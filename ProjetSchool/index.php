@@ -30,6 +30,7 @@ if (isset($_GET['_url'])) {
 }
 
 
+
 if ($url === '/' || $url==='/acceuil') { // Accueil
     $controller->index();
 } else if($url==='/inscription'){
@@ -49,6 +50,41 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
 
 }else if($url==='/prof'){
     $controller->professeur();
+
+
+
+// CRUD
+}else if($url==='/crud'){
+    $controller->crud();    
+
+}else if($url==='/indexcrud'){
+    $controller->indexcrud();    
+
+}else if($url==='/users'){
+    $controller->userscrud();    
+
+}else if($url==='/insert'){
+    $controller->insertcrud();    
+
+}else if($url==='/editcursus'){
+    $controller->editcursus();    
+}else if($url=== '/editetudiant'){
+    $controller->editetudiant();    
+
+}elseif($url==='/editprofesseur'){
+    $controller->editprofesseur();
+}else if($url==='/editnote'){
+    $controller->editnote();
+}else if ($url==='/editcurs_prof'){
+    $controller->editcurs_prof();
+}else if($url==='/editutilisateur'){
+    $controller->editutilisateur();
+}else if($url==='/editmatiere'){
+    $controller->editmatiere();
+}else if($url==='/editfamille'){
+    $controller->editfamille();
+    
+    
 
 }else  {
     http_response_code(404);

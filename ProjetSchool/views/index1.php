@@ -16,22 +16,7 @@
         <title>Document</title>
     </head>
 
-    <body>
-        <!--Header-->
-
-        <div class="header">
-            <div class="side">
-            <a href="https://www.education.gouv.fr/"> <img src="./img/logo.png"> </a>
-            </div>
-            <div class="main">
-            <h5><b> Collège FKLN - 74 avenue JEAN Francois 75015 Paris - 01 55 66 41 77 </b></h5>
-            </div>
-        </div>
-
-
-
-        <!--Navbar-->
-
+    <body
 
 
         <div class="sticky-top">

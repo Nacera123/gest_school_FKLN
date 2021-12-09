@@ -11,40 +11,6 @@
     }
 
 
-    /*                          Header                               */
-
-
-    .header { 
-        margin-top: 10px; 
-        display: -ms-flexbox; /* IE10 */
-        display: flex;
-        -ms-flex-wrap: wrap; /* IE10 */
-        flex-wrap: wrap;
-        
-    }
-
-    .header h5{
-        font-family: system-ui;
-    }
-
-    .side {
-    -ms-flex: 30%; /* IE10 */
-    flex: 30%;
-    background-color: white;
-    padding: 80px;
-    padding-bottom: 30px;
-    padding-top: 30px;
-
-    }
-
-    .main {   
-        -ms-flex: 70%; /* IE10 */
-        flex: 70%;
-        background-color: white;
-        color: black;
-        padding-top: 90px;
-        padding-right: 50px;
-    }
 
     /*                          Navbar                               */
     .navbar {

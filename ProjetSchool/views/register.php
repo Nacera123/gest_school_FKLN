@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <div class="sticky-top">
       <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="navbar">

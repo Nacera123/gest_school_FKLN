@@ -7,18 +7,18 @@ class Etudiant {
     private $nom;
     private $prenom;
     private $date_naissance;
-    private $cursus;
+    private $id_utilisateur;
     private $id_cursus;
 
 
     // le constructeur
-    public function __construct($id_etudiant, $nom, $prenom, $date_naissance, $cursus, $id_cursus)
+    public function __construct($id_etudiant, $nom, $prenom, $date_naissance, $id_utilisateur, $id_cursus)
     {
         $this-> id_etudiant = $id_etudiant;
         $this-> nom = $nom;
         $this-> prenom = $prenom;
         $this-> date_naissance = $date_naissance;
-        $this-> cursus = $cursus;
+        $this-> id_utilisateur = $id_utilisateur;
         $this-> id_cursus = $id_cursus;
 
     }
@@ -86,13 +86,13 @@ class Etudiant {
     }
 
     //get set pour le cursus
-    public function getcursusE()
+    public function getidutilisateurE()
     {
         return $this-> cursus;
     }
 
 
-    public function setcursusE($cursus): self
+    public function setidutilisateurE($cursus): self
     {
         if(is_string($cursus)) {
             $this->cursus = $cursus;

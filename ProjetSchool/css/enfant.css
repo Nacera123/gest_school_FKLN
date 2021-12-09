@@ -1,38 +1,5 @@
 
-/*                       Header                                 */
 
-
-.header {
-    padding: 80px;
-    /* background: #2cb2ff; */
-    color: white;
-    height: 200px;
-    display:-ms-flexbox; 
-    display: flex;
-    flex:100%;
-  }
-
-.side{
-    height: 100px; width: 200px;
-    -ms-flex: 30%; /* IE10 */
-    flex: 30%;
-    background-color: white;
-
-
-    
-}
-  .main {
-    flex-wrap: 80%;
-    flex: 80%;
-    font-size: 60px;
-    color: black;
-  }
-
-img{
-    height: 100px;
-    width: 100px;
- 
-}
 
 
 /*                                 bienvenue                               */

@@ -16,30 +16,6 @@ VALUES('Scientifique', 6000),
       ('Science économique et sociale', 5000),
       ('Management et gestion', 4200);
 
--- //............... etudiant ............//
-
-CREATE TABLE IF NOT EXISTS etudiant (
-  id_etudiant INTEGER PRIMARY KEY NOT NULL auto_increment,
-  nom varchar(50) NOT NULL,
-  prenom varchar(50) NOT NULL,
-  date_naissance DATE NOT NULL,
-  id_utilisateur varchar(50),
-  id_cursus INTEGER,
-  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
-  ON DELETE CASCADE
-) ENGINE InnoDB;
-
-INSERT INTO etudiant(nom, prenom, date_naissance, id_utilisateur, id_cursus) 
-
-VALUES ('keita', 'karim','2015-11-11' ,2, 4),
-
-
-      -- ('Dubois','Martin', '2015-11-11',1),
-      -- ('Bourgeois','Samuel', '2015-05-02', 'Science économique et sociale',4),
-      -- ('Mdou','Mamadou', '2015-02-07', 'Management et gestion',5),
-      -- ('Bourass','Mohamed', '2015-09-11', 'Mathématique',2),
-      -- ('Wang','Yibo', '2015-08-06', 'Mathématique',2);
-
 
 -- //............... utilisateur ............//
 
@@ -62,7 +38,40 @@ VALUES ('safar', 'fadi','fadi@gmail.com', 'fadi', '07.56.58.56', '5 av de titi',
        ('keita', 'karim','karim@gmail.com', 'karim', '07.78.58.56', '5 av de titi', 79420, 'etudiant'),
        ('erlong', 'laina','laina@gmail.com', 'laina', '07.99.58.56', '5 av de titi', 79420, 'professeur'),
        ('slimane', 'nacera','nacera@gmail.com','nacera', '07.11.58.56', '5 av de titi', 79420, 'admin'),
-       ('dulac','jean','dubois@gmail.com','dubois','07.00.09.02.12','4 av Guerard',23456,'professeur');
+       ('dulac','jean','dubois@gmail.com','dubois','07.00.09.02.12','4 av Guerard',23456,'professeur'),
+        ('souris','verte','sverte@gmail.com','verte','07.99.09.02.12','10 av Guerard',23456,'etudiant');
+
+
+-- //............... etudiant ............//
+
+CREATE TABLE IF NOT EXISTS etudiant (
+  
+  id_etudiant INTEGER PRIMARY KEY NOT NULL auto_increment,
+  nom varchar(50) NOT NULL,
+  prenom varchar(50) NOT NULL,
+  date_naissance DATE NOT NULL,
+  id_utilisateur INTEGER(50),
+  id_cursus INTEGER,
+   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
+  ON DELETE CASCADE,
+   FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
+  ON DELETE CASCADE
+) ENGINE InnoDB;
+
+INSERT INTO etudiant(nom, prenom, date_naissance, id_utilisateur, id_cursus) 
+
+VALUES ('keita', 'karim','2015-11-11' ,2, 4),
+('Souris', 'verte','2015-09-11' ,6, 4);
+
+
+
+      -- ('Dubois','Martin', '2015-11-11',1),
+      -- ('Bourgeois','Samuel', '2015-05-02', 'Science économique et sociale',4),
+      -- ('Mdou','Mamadou', '2015-02-07', 'Management et gestion',5),
+      -- ('Bourass','Mohamed', '2015-09-11', 'Mathématique',2),
+      -- ('Wang','Yibo', '2015-08-06', 'Mathématique',2);
+
+
 
 
 -- //............... professur ............//
@@ -129,24 +138,30 @@ CREATE TABLE IF NOT EXISTS note (
   id_etudiant INTEGER (50),
   id_professeur INTEGER (50),
   id_cursus INTEGER (50),
+  id_utilisateur INTEGER(50)
   FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
   ON DELETE CASCADE,
   FOREIGN KEY (id_professeur) REFERENCES professeur(id_professeur) 
   ON DELETE CASCADE,
   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
+  ON DELETE CASCADE,
+   FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
   ON DELETE CASCADE
 ) ENGINE InnoDB;
 
 
 
-INSERT INTO note(matiere, note, appreciation, id_etudiant, id_professeur, id_cursus) 
-VALUES ('Mathématique', 10,'Passable', 1, 1,1), 
-       ('Science économique et sociale', 11,'Passable', 1, 2, 1);
+INSERT INTO note (matiere, note, appreciation, id_etudiant, id_professeur, id_cursus,id_utilisateur) 
+VALUES ('Mathématique', 10,'Passable', 1, 1,1,2), 
+       ('Science économique et sociale', 11,'Passable', 1, 2, 1,2),
 
-      --   ('Mathématique', 10,'Passable', 4, 1,1), 
+         
+      ('Mathématique', 10,'Passable', 2, 1,1,6),
+      ('Science économique et sociale', 16,'Passable', 2, 2, 1,6);
+
       --  ('Mathématique', 17,'Excellent', 5, 1, 2),
 
-      --  ('Science économique et sociale', 11,'Passable', 4, 2, 1),
+      --  
       --  ('Science économique et sociale', 14,'Bien', 5, 2, 2);
 
       --  ('Physique', 13,'Bien', 4, 3, 1),
@@ -216,7 +231,7 @@ CREATE TABLE IF NOT EXISTS famille (
   dn_enfant DATE,
   id_cursus INTEGER (50) ,
   id_etudiant INTEGER (50) ,
-   id_utilisateur INTEGER ,
+  id_utilisateur INTEGER ,
   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
   ON DELETE CASCADE,
   FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
@@ -227,7 +242,8 @@ CREATE TABLE IF NOT EXISTS famille (
 
 INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant, id_cursus, id_etudiant,id_utilisateur)
 
-VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',1,1,6);
+VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',1,1,5),
+      ('Souris','Rouge', '07-33-11-09', '3 Av du bonheur', 7501,'Souris','Verte', '2015-11-09',1,2,6);
       -- ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,'Bourgeois','Samuel', '2015-05-02', 4,2),
       -- ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503, 'Mdou','Mamadou', '2015-02-07', 5,3),
       -- ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'Bourass','Mohamed', '2015-09-11',2,4),

@@ -103,15 +103,16 @@ public function login() {
    public function getEtudiant() {
     $etudiantList = [];
     
-    $sql = "SELECT * FROM etudiant, note
-    JOIN etudiant.id 
-    WHERE id_utilisateur = ". $_SESSION['id_utilisateur'];
+    $sql = "SELECT *
+    FROM etudiant 
+    JOIN cursus ON cursus.id_cursus = etudiant.id_cursus
+    WHERE  id_utilisateur = ". $_SESSION['id_utilisateur'];
 
     $etudiantArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($etudiantArray as $etudiant) {
         $etudiantList[] = new Etudiant($etudiant['id_etudiant'],$etudiant['nom'], $etudiant['prenom'],
-         $etudiant['date_naissance'],  $_SESSION['id_utilisateur'],$etudiant['id_cursus']);
+         $etudiant['date_naissance'],  $_SESSION['id_utilisateur'],$etudiant['nom_cursus']);
     }
 
     return $etudiantList;
@@ -138,13 +139,15 @@ public function login() {
     public function getNote() {
         $noteList = [];
         
-        $sql = "SELECT * FROM note";
+        $sql = "SELECT * FROM note
+        WHERE  id_utilisateur = ". $_SESSION['id_utilisateur'];
     
         $noteArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     
         foreach($noteArray as $note) {
             $noteList[] = new Note($note['id_note'], $note['matiere'],$note['note'], 
-            $note['appreciation'], $note['id_etudiant'],$note['id_professeur'],$note['id_cursus']);
+            $note['appreciation'], $note['id_etudiant'],$note['id_professeur'],
+            $note['id_cursus'],$_SESSION['id_utilisateur']);
         }
     
         return $noteList;

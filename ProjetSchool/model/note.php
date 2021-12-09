@@ -10,11 +10,11 @@ class Note {
     private $id_etudiant;
     private $id_professeur;
     private $id_cursus;
-
+    private $id_utilisateur;
 
 
     // le constructeur
-    public function __construct($id_note, $matiere, $note, $appreciation, $id_etudiant, $id_professeur, $id_cursus)
+    public function __construct($id_note, $matiere, $note, $appreciation, $id_etudiant, $id_professeur, $id_cursus,$id_utilisateur)
     {
         $this-> id_note = $id_note;
         $this-> matiere= $matiere;
@@ -23,7 +23,7 @@ class Note {
         $this-> id_etudiant = $id_etudiant;
         $this-> id_professeur = $id_professeur;
         $this-> id_cursus = $id_cursus;
-
+        $this-> id_utilisateur = $id_utilisateur;
 
     }
 
@@ -136,5 +136,21 @@ class Note {
 
         return $this;
     }
+
+     //get set pour l'id_cursus
+     public function getidutilisateurN()
+     {
+         return $this->id_cursus;
+     }
+ 
+ 
+     public function setidutilisateurN($id_cursus): self
+     {
+         if(is_string($id_cursus)) {
+             $this->id_cursus = $id_cursus;
+         }
+ 
+         return $this;
+     }
     
 }

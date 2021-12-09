@@ -31,11 +31,12 @@ class HomeController extends MainController
         $DBData = new DBData();
         $etudiantList = $DBData->getEtudiant();
         $matiereList = $DBData->getMatiere();
-      
+        $noteList = $DBData->getNote();
 
         return $this->show('enfant', [
             'matiereList' => $matiereList,
             'etudiantList' => $etudiantList,
+            'noteList' => $noteList
             ]);
         }
 
@@ -47,8 +48,8 @@ class HomeController extends MainController
         $noteList = $DBData->getNote();
 
         return $this->show('parents', [
-            'noteList' => $noteList,
-            'familleList' => $familleList   
+            'familleList' => $familleList, 
+            'noteList' => $noteList
         ]);
     }
     

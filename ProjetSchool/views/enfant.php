@@ -22,20 +22,6 @@
 
 <body>
 
-<div class="header">
-        <div class="side">
-            <a href="https://www.education.gouv.fr/"> <img src="./img/logo.png"> </a>
-        </div>
-        <div class="main"><center>
-            <h5><b> Collège FKLN - 74 avenue JEAN Francois 75015 Paris - 01 55 66 41 77 </b></h5>
-            <h2>ESPACE ELEVES</h2>
-        </center></div>
-   
-</div>
-
-
-<!--Navbar-->
-
 
 <div class="sticky-top">
     <div class="shadow p-3 mb-5 bg-body rounded">
@@ -65,7 +51,7 @@
                 <li> NOM : <?= $etudiant-> getnomE()?></li>
                 <li> PRENOM : <?= $etudiant-> getprenomE()?></li>
                 <li> DATE DE NAISSANCE : <?= $etudiant-> getdate_naissanceE()?></li>
-                <li> CURSUS : <?= $etudiant-> getcursusE()?></li>
+                <li> CURSUS : <?= $etudiant-> getid_cursusE()?></li>
                 <?php endforeach; ?>
         
         </div>
@@ -73,8 +59,15 @@
 
         <div class ="droite">
             <div class="bulletin">
+
+            <!-- <?php foreach ($viewVars['noteList'] as $note) : ?>
+                <p> <center>MATIERE : <?= $note->getmatiereN()?></center></p><br>
+                <li> PROFESSEUR :<?= $note->getidprofesseurN()?></li><br>
+                <li> NOTE : <?= $note->getnoteN()?></li><br>
+                <li> APPRECIATION :<?= $note->getappreciationN()?> </li><br>
+                <?php endforeach; ?> -->
+
                 <table class ="table">
-            
                 <thead>
                     <tr>
                         <th>Matières</th>
@@ -83,25 +76,19 @@
                         <th>Appréciations</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    <!-- <tr><?php foreach ($viewVars['noteList'] as $note) :?>
-                        <td><?= $note-> getmatiereN()?></td>
-                        <td><?= $note-> getidprofesseurN()?></td>
-                        <td><?= $note-> getnoteN()?></td>
-                        <td><?= $note->  getappreciationN()?></td>
-                    <?php endforeach?>
-                    </tr> -->
-
-                    <tr>
-                        <td>Introduction à l'accessibilité</td>
-                        <td>Introduction à l'accessibilité</td>
-                        <td>Introduction à l'accessibilité</td>
-                        <td>Introduction à l'accessibilité</td>
+                    <?php foreach ($viewVars['noteList'] as $note) :?>
+                     <tr> 
+                        <td><?= $note->getmatiereN()?></td>
+                        <td><?= $note->getidprofesseurN()?></td>
+                        <td><?= $note->getnoteN()?></td>
+                        <td><?= $note->getappreciationN()?></td>
                     </tr>
-                </tbody>
+                    <?php endforeach?>
 
+                </tbody>
              </table>
+
             </div>
         </div>
 

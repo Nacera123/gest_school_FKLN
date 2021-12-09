@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Feuille CSS -->
- <link rel="stylesheet" href="./css/profs.css">
+ <link rel="stylesheet" href="../css/profs.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -20,20 +20,6 @@
 
 
 <body>
-
-
-<div class="header">
-        <div class="side">
-            <a href="https://www.education.gouv.fr/"> <img src="./img/logo.png"> </a>
-        </div>
-        <div class="main"><center>
-            <h5><b> Collège FKLN - 74 avenue JEAN Francois 75015 Paris - 01 55 66 41 77 </b></h5>
-            <h2>ESPACE PROFESSEURS</h2>
-        </center></div>
-   
-</div>
-
-
 <!--Navbar-->
 
 
@@ -64,11 +50,11 @@
     <div class = "infperso">
         <br><h5>Mes informations personnelles</h5><br><br>
      
-        <?php foreach ($viewVars['professeurList'] as $prof ) : ?>
+        <!-- <?php foreach ($viewVars['professeurList'] as $prof ) : ?>
             <li> NOM : <?= $prof-> getnomP()?></li>
             <li> PRENOM : <?= $prof-> getprenomP()?></li>
             <li> MATIERE : <?= $prof-> getmatiereP()?></li>
-            <?php endforeach; ?>
+            <?php endforeach; ?> -->
           
     </div>
 

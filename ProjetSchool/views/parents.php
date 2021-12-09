@@ -23,19 +23,6 @@
 
 <body>
 
-
-<div class="header">
-        <div class="side">
-            <a href="https://www.education.gouv.fr/"> <img src="./img/logo.png"> </a>
-        </div>
-        <div class="main"><center>
-            <h5><b> Collège FKLN - 74 avenue JEAN Francois 75015 Paris - 01 55 66 41 77 </b></h5>
-            <h2>ESPACE PARENTS</h2>
-        </center></div>
-   
-</div>
-
-
 <!--Navbar-->
 
 
@@ -91,8 +78,16 @@
 
 
         <div class ="formation">
-
-            <table>
+        <br><h5>Bulletin de l'élève</h5><br>
+                      <?php foreach ($viewVars['noteList'] as $note) : ?> 
+                        <td><?= $note-> getmatiereN()?> </td>
+                        <td><?= $note-> getidprofesseurN()?></td>
+                        <td><?= $note-> getnoteN()?></td>
+                        <td><?= $note-> getappreciationN()?></td>
+                      <?php endforeach; ?>
+                    
+                    </div>
+            <!-- <table>
                 <thead>
                     <tr>
                         <th>Matières</th>
@@ -104,12 +99,7 @@
 
                  <tbody>
                      <tr>
-                <?php foreach ($viewVars['noteList'] as $note) : ?> 
-                        <td><?= $note-> getmatiereN()?> </td>
-                        <td><?= $note-> getidprofesseurN()?></td>
-                        <td><?= $note-> getnoteN()?></td>
-                        <td><?= $note-> getappreciationN()?></td>
-                        <?php endforeach; ?>
+              
                      </tr>
 
                      <tr>
@@ -120,8 +110,8 @@
                      </tr>
                 </tbody>
 
-            </table>
-        </div>
+            </table> -->
+        
     </div>
 
 </div>
@@ -131,7 +121,6 @@
             
     <a href =""><button id = "bouton" type="button" class="btn btn-primary">Suppression compte </button></a>
             
-            <!-- <?php include 'bodyenfant.php'?> -->
  </div>
 
 
