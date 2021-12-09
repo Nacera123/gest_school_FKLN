@@ -113,4 +113,23 @@ class DBData {
 
 
 
-}
+        // Fonction CLASS= ENFANT et COMPTE = ENFANT
+   public function getEtudiant() {
+    $etudiantList = [];
+    
+    $sql = "SELECT * FROM etudiant
+    -- JOIN etudiant.id 
+    WHERE id_utilisateur = ". $_SESSION['id_utilisateur'];
+
+    $etudiantArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($etudiantArray as $etudiant) {
+        $etudiantList[] = new Etudiant($etudiant['id_etudiant'],$etudiant['nom'], $etudiant['prenom'],
+         $etudiant['date_naissance'],  $_SESSION['id_utilisateur'],$etudiant['id_cursus']);
+    }
+
+    return $etudiantList;
+    }
+
+
+}            

@@ -2,7 +2,6 @@
 
 	<?php 
 		require_once 'conn.php'; 
-		session_start();
 
 	
 		echo "<div class='container'>";

@@ -16,28 +16,6 @@ VALUES('Scientifique', 6000),
       ('Science économique et sociale', 5000),
       ('Management et gestion', 4200);
 
--- //............... etudiant ............//
-
-CREATE TABLE IF NOT EXISTS etudiant (
-  id_etudiant INTEGER PRIMARY KEY NOT NULL auto_increment,
-  nom varchar(50) NOT NULL,
-  prenom varchar(50) NOT NULL,
-  date_naissance DATE NOT NULL,
-  cursus varchar(50),
-  id_cursus INTEGER, 
-  -- ajouter id_utilisateur
-  FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
-  ON DELETE CASCADE
-) ENGINE InnoDB;
-
-INSERT INTO etudiant(nom, prenom, date_naissance, cursus, id_cursus) 
-
-VALUES('Dubois','Martin', '2015-11-11', 'Scientifique',1),
-      ('Bourgeois','Samuel', '2015-05-02', 'Science économique et sociale',4),
-      ('Mdou','Mamadou', '2015-02-07', 'Management et gestion',5),
-      ('Bourass','Mohamed', '2015-09-11', 'Mathématique',2),
-      ('Wang','Yibo', '2015-08-06', 'Mathématique',2);
-
 
 
 -- //............... utilisateur ............//
@@ -79,6 +57,31 @@ VALUES ('safar', 'fadi','fadi@gmail.com', 'fadi', '07.56.58.56', '10 av de titi'
        ('Bourass','Mohamed','Mohamed@gmail.com', 'Mohamed', '07.11.44.56', '17 av de titi', 79420, 'etudiant'),
        ('Wang','Yibo','Yibo@gmail.com', 'Yibo', '07.11.55.56', '18 av de titi', 79420, 'etudiant');
 
+
+-- //............... etudiant ............//
+
+CREATE TABLE IF NOT EXISTS etudiant (
+  id_etudiant INTEGER PRIMARY KEY NOT NULL auto_increment,
+  nom varchar(50) NOT NULL,
+  prenom varchar(50) NOT NULL,
+  date_naissance DATE NOT NULL,
+  cursus varchar(50),
+  id_cursus INTEGER, 
+  id_utilisateur INTEGER,
+  FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
+  ON DELETE CASCADE
+
+) ENGINE InnoDB;
+
+INSERT INTO etudiant(nom, prenom, date_naissance, cursus, id_cursus, id_utilisateur) 
+
+VALUES('Dubois','Martin', '2015-11-11', 'Scientifique',1, 10),
+      ('Bourgeois','Samuel', '2015-05-02', 'Science économique et sociale',4, 11),
+      ('Mdou','Mamadou', '2015-02-07', 'Management et gestion',5, 12),
+      ('Bourass','Mohamed', '2015-09-11', 'Mathématique',2, 13),
+      ('Wang','Yibo', '2015-08-06', 'Mathématique',2, 14);
 
 
 
