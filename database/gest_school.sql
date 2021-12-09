@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS etudiant (
   prenom varchar(50) NOT NULL,
   date_naissance DATE NOT NULL,
   cursus varchar(50),
-  id_cursus INTEGER,
+  id_cursus INTEGER, 
+  -- ajouter id_utilisateur
   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
   ON DELETE CASCADE
 ) ENGINE InnoDB;

@@ -41,6 +41,23 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
 }else if($url==='/insert'){
     $controller->insertcrud();    
 
+}else if($url==='/editcursus'){
+    $controller->editcursus();    
+}else if($url=== '/editetudiant'){
+    $controller->editetudiant();    
+
+}elseif($url==='/editprofesseur'){
+    $controller->editprofesseur();
+}else if($url==='/editnote'){
+    $controller->editnote();
+}else if ($url==='/editcurs_prof'){
+    $controller->editcurs_prof();
+}else if($url==='/editutilisateur'){
+    $controller->editutilisateur();
+}else if($url==='/editmatiere'){
+    $controller->editmatiere();
+}else if($url==='/editfamille'){
+    $controller->editfamille();
 }else{
     http_response_code(404);
 }

@@ -31,6 +31,9 @@ class HomeController extends MainController
   
     }
 
+
+    //CRUD
+
     public function indexcrud(){
         return $this->show1('indexcrud');
     }
@@ -42,5 +45,39 @@ class HomeController extends MainController
     public function insertcrud(){
         return $this->show1('insert');
     }
+
+    public function editcursus(){
+        return $this->show2('editcursus');
+    }
+
+    public function editetudiant(){
+        return $this->show2('editetudiant');
+    }
+
+    public function editprofesseur(){
+        return $this->show2('editprofesseur');
+    }
+
+    public function editnote(){
+        return $this->show2('editnote');
+    }
+
+    public function editcurs_prof(){
+        return $this->show2('editcurs_prof');
+    }
+    public function editutilisateur(){
+        return $this->show2('editutilisateur');
+    }
+    public function editmatiere(){
+        return $this->show2('editmatiere');
+    }
+    public function editfamille(){
+        return $this->show2('editfamille');
+    }
+
+
+
+
+
 
 }

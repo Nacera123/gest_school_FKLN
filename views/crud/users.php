@@ -1,7 +1,7 @@
 <html>
 
 	<?php 
-		require_once 'connect.php'; 
+		require_once 'conn.php'; 
 		session_start();
 
 	
@@ -43,7 +43,7 @@
 			echo "<td>".$row['frais_cursus'] . "</td>";
 
 			echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
-			echo "<td><a href='edit.php?id=".$row['id_cursus']."' class='btn btn-info'>Edit</a></td>";
+			echo "<td><a href='editcursus?id=".$row['id_cursus']."' class='btn btn-info'>Edit</a></td>";
 			echo "</tr>";
 			echo "</form>"; //added 
 		}
@@ -109,7 +109,7 @@
 			echo "<td>".$row['id_cursus'] . "</td>";
 					
 			echo "<td><input type='submit' name='delete1' value='Delete' class='btn btn-danger' /></td>";  
-			echo "<td><a href='edit.php?id=".$row['id_etudiant']."' class='btn btn-info'>Edit</a></td>";
+			echo "<td><a href='editetudiant?id=".$row['id_etudiant']."' class='btn btn-info'>Edit</a></td>";
 			echo "</tr>";
 			echo "</form>"; //added 
 		}
@@ -177,7 +177,7 @@
 				echo "<td>".$row['matiere'] . "</td>";
 				
 				echo "<td><input type='submit' name='delete2' value='Delete' class='btn btn-danger' /></td>";  
-				echo "<td><a href='edit.php?id=".$row['id_professeur']."' class='btn btn-info'>Edit</a></td>";
+				echo "<td><a href='editprofesseur?id=".$row['id_professeur']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
 			}
@@ -239,7 +239,7 @@
 				echo "<td>".$row['id_professeur'] . "</td>";
 				
 				echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
-				echo "<td><a href='edit.php?id=".$row['id_cursus']."' class='btn btn-info'>Edit</a></td>";
+				echo "<td><a href='editcurs_prof?id=".$row['id_cursus']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
 			}
@@ -315,7 +315,7 @@
 
 
 				echo "<td><input type='submit' name='delete4' value='Delete' class='btn btn-danger' /></td>";  
-				echo "<td><a href='edit.php?id=".$row['id_note']."' class='btn btn-info'>Edit</a></td>";
+				echo "<td><a href='editnote?id=".$row['id_note']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
 			}
@@ -390,7 +390,7 @@
 				echo "<td>".$row['fonction'] . "</td>";
 				
 				echo "<td><input type='submit' name='delete5' value='Delete' class='btn btn-danger' /></td>";  
-				echo "<td><a href='edit.php?id=".$row['id_utilisateur']."' class='btn btn-info'>Edit</a></td>";
+				echo "<td><a href='editutilisateur?id=".$row['id_utilisateur']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
 			}
@@ -455,7 +455,7 @@
 				echo "<td>".$row['id_cursus'] . "</td>";
 				
 				echo "<td><input type='submit' name='delete6' value='Delete' class='btn btn-danger' /></td>";  
-				echo "<td><a href='edit.php?id=".$row['id_matiere']."' class='btn btn-info'>Edit</a></td>";
+				echo "<td><a href='editmatiere?id=".$row['id_matiere']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
 			}
@@ -539,7 +539,7 @@
 
 				
 				echo "<td><input type='submit' name='delete7' value='Delete' class='btn btn-danger' /></td>";  
-				echo "<td><a href='edit.php?id=".$row['id_famille']."' class='btn btn-info'>Edit</a></td>";
+				echo "<td><a href='editfamille'?id=".$row['id_famille']."' class='btn btn-info'>Edit</a></td>";
 				echo "</tr>";
 				echo "</form>"; //added 
 			}
