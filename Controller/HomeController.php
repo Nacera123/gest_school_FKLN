@@ -31,6 +31,25 @@ class HomeController extends MainController
   
     }
 
+    public function prof(){
+
+        $DBData = new DBData();
+        $professeurList = $DBData->getProfesseur();
+        // $noteList = $DBData->getNote();
+        
+        return $this->show('prof',[
+            'professeurList' => $professeurList
+            // 'noteList' => $noteList
+        ]);
+
+        return $this->show('prof',[
+            'professeurList' => $professeurList
+            // 'noteList' => $noteList
+        ]);
+  
+    }
+
+
 
     //CRUD
 

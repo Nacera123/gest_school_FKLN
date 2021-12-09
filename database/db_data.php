@@ -25,7 +25,7 @@ class DBData {
         }
     }
     
-
+// FONCTION POUR L'INSCRIPTION 
     public function insert_user($data=[])
     {
    
@@ -36,7 +36,7 @@ class DBData {
         return $res;
     }
 
-
+// FONCTION POUR LA CONNEXION 
     public function login() {
         $query = "SELECT * FROM utilisateur WHERE email = :email AND mot_de_passe = :mot_de_passe";
         $reslt = $this->dbh ->prepare($query);  
@@ -48,27 +48,28 @@ class DBData {
         );  
 
         $user = $reslt->fetch(PDO::FETCH_ASSOC);
-        $_SESSION["email"] = $_POST["email"]; 
-        $_SESSION["id_utilisateur"] = $user["id_utilisateur"];
+        $_SESSION["email"] = $user["email"]; 
+        $_SESSION['id_utilisateur'] = $user["id_utilisateur"];
 
 
-        // var_dump ($user['fonction']);exit;
       
-            // vérifier si l'utilisateur est un administrateur ou un utilisateur
-            if ($user['fonction'] == 'admin') {
-                header('location:indexcrud');		  
-            }elseif($user['fonction'] == 'parent') {
-                header('location:index1');    
-            }elseif($user['fonction'] == 'professeur') {
-                header('location:professeur.php'); 
-            }elseif($user['fonction'] == 'etudiant') {
-                header('location:enfant'); 
-            }else{
-            $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
+    // vérifier si l'utilisateur est un administrateur ou un utilisateur
+        if ($user['fonction'] == 'admin') {
+            header('location:indexcrud');		  
+        }elseif($user['fonction'] == 'parent') {
+            header('location:index1');    
+        }elseif($user['fonction'] == 'professeur') {
+            header('location:prof'); 
+        }elseif($user['fonction'] == 'etudiant') {
+            header('location:enfant'); 
+        }else{
+        $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
         }
 
     }
+// FONCTION POUR LES CLASS
 
+    //CLASSE CURSUS
     public function getid_cursusC($id_cursus) {
     }
     
@@ -91,6 +92,24 @@ class DBData {
         return $cursusList;
     }
 
+    //CLASS PROFESSEUR
+
+    public function getProfesseur() {
+        $professeurList = [];
+        
+        $sql = "SELECT * FROM professeur
+        WHERE id_utilisateur = ". $_SESSION['id_utilisateur'];
+        
+    // var_dump($_SESSION['id_utilisateur']); exit;
+        $professeurArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
+        foreach($professeurArray as $prof) {
+            $professeurList[] = new Professeur($prof['id_professeur'], $prof['nom'],
+            $prof['prenom'], $prof['matiere'],$_SESSION['id_utilisateur']);
+        }
+    
+        return $professeurList;
+    }
 
 
 

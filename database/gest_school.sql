@@ -39,6 +39,49 @@ VALUES('Dubois','Martin', '2015-11-11', 'Scientifique',1),
       ('Wang','Yibo', '2015-08-06', 'Mathématique',2);
 
 
+
+-- //............... utilisateur ............//
+
+DROP TABLE IF EXISTS utilisateur ; 
+
+CREATE TABLE IF NOT EXISTS utilisateur(
+  id_utilisateur INTEGER PRIMARY KEY NOT NULL auto_increment,
+  nom varchar(50) NOT NULL,
+  prenom varchar(50) NOT NULL,
+  email varchar(200) NOT NULL,
+  mot_de_passe varchar(200) NOT NULL,
+  mobile varchar(50) NOT NULL,
+  adresse varchar(200) NOT NULL,
+  code_postal integer(5) NOT NULL,
+  fonction    VARCHAR(50)NOT NULL
+) ENGINE InnoDB;
+
+
+
+INSERT INTO utilisateur(nom, prenom, email, mot_de_passe, mobile, adresse, code_postal, fonction) 
+VALUES ('safar', 'fadi','fadi@gmail.com', 'fadi', '07.56.58.56', '10 av de titi', 79420, 'admin'),
+       ('keita', 'karim','karim@gmail.com', 'karim', '07.78.58.56', '11 av de titi', 79420, 'admin'),
+       ('slimane', 'nacera','nacera@gmail.com', 'nacera', '07.11.58.56', '13 av de titi', 79420, 'admin'),
+
+      -- les professeur
+      ('erlong', 'laina','laina@gmail.com', 'laina', '07.99.58.56', '12 av de titi', 79420, 'professeur'),
+      ('Dulac','Jean','Jean@gmail.com', 'Jean', '07.12.58.56', '20 av de titi', 79420, 'professeur'),
+      ('Lu','Ziao','Ziao@gmail.com', 'Ziao', '07.34.58.56', '21 av de titi', 79420, 'professeur'),
+      ('Mango','Kylian','Kylian@gmail.com', 'Kylian', '07.56.58.56', '22 av de titi', 79420, 'professeur'),
+      ('Talbi','Achraf','Achraf@gmail.com', 'Achraf', '07.78.58.56', '23 av de titi', 79420, 'professeur'),
+      ('Orsoni','Francoise','Francoise@gmail.com', 'Francoise', '07.99.58.56', '24 av de titi', 79420, 'professeur'),
+
+
+      --  les eleves
+       ('Dubois','Martin','Martin@gmail.com', 'Martin', '07.11.11.56', '14 av de titi', 79420, 'etudiant'),
+       ('Bourgeois','Samuel','Samuel@gmail.com', 'Samuel', '07.11.22.56', '15 av de titi', 79420, 'etudiant'),
+       ('Mdou','Mamadou','Mamadou@gmail.com', 'Mamadou', '07.11.33.56', '16 av de titi', 79420, 'etudiant'),
+       ('Bourass','Mohamed','Mohamed@gmail.com', 'Mohamed', '07.11.44.56', '17 av de titi', 79420, 'etudiant'),
+       ('Wang','Yibo','Yibo@gmail.com', 'Yibo', '07.11.55.56', '18 av de titi', 79420, 'etudiant');
+
+
+
+
 -- //............... professur ............//
 DROP TABLE IF EXISTS professeur; 
 
@@ -46,16 +89,20 @@ CREATE TABLE IF NOT EXISTS professeur(
   id_professeur INTEGER PRIMARY KEY NOT NULL auto_increment,
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
-  matiere varchar(50)
+  matiere varchar(50),
+  id_utilisateur INTEGER, 
+  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
+  ON DELETE CASCADE
+
 ) ENGINE InnoDB;
 
-INSERT INTO professeur(nom, prenom, matiere) 
-VALUES ('Dulac','Jean', 'Mathématique'),
-       ('Erlong','Laîna','Science économique et sociale'),
-       ('Lu','Ziao','Physique'),
-       ('Mango','Kylian','Histoire'),
-       ('Talbi','Achraf','Géographie'),
-       ('Orsoni','Francoise','Francais');
+INSERT INTO professeur(nom, prenom, matiere, id_utilisateur) 
+VALUES ('Dulac','Jean', 'Mathématique',5),
+       ('Erlong','Laîna','Science économique et sociale',4),
+       ('Lu','Ziao','Physique', 6),
+       ('Mango','Kylian','Histoire', 7),
+       ('Talbi','Achraf','Géographie', 8),
+       ('Orsoni','Francoise','Francais', 9);
 
 
 -- //............... cursus-professeur ............//
@@ -128,28 +175,6 @@ VALUES ('Mathématique', 10,'Passable', 4, 1,1),
        ('Francais', 13,'Bien', 5, 6, 2);
 
 
-
--- //............... utilisateur ............//
-
-DROP TABLE IF EXISTS utilisateur ; 
-
-CREATE TABLE IF NOT EXISTS utilisateur(
-  id_utilisateur INTEGER PRIMARY KEY NOT NULL auto_increment,
-  nom varchar(50) NOT NULL,
-  prenom varchar(50) NOT NULL,
-  email varchar(200) NOT NULL,
-  mot_de_passe varchar(200) NOT NULL,
-  mobile varchar(50) NOT NULL,
-  adresse varchar(200) NOT NULL,
-  code_postal integer(5) NOT NULL,
-  fonction    VARCHAR(50)NOT NULL
-) ENGINE InnoDB;
-
-INSERT INTO utilisateur(nom, prenom, email, mot_de_passe, mobile, adresse, code_postal, fonction) 
-VALUES ('safar', 'fadi','fadi@gmail.com', 'fadi', '07.56.58.56', '5 av de titi', 79420, 'admin'),
-       ('keita', 'karim','karim@gmail.com', 'karim', '07.78.58.56', '5 av de titi', 79420, 'professeur'),
-       ('erlong', 'laina','laina@gmail.com', 'laina', '07.99.58.56', '5 av de titi', 79420, 'etudiant'),
-       ('slimane', 'nacera','nacera@gmail.com', 'nacera', '07.11.58.56', '5 av de titi', 79420, 'admin');
 
 
 -- //............... matiere ............//

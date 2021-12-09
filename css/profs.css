@@ -1,0 +1,74 @@
+
+
+
+/*                                 bienvenue                               */
+
+.bienvenue{
+  padding: 50px;
+  text-align:center;
+}
+
+
+
+/* corps de la page */
+  .corpss{
+        height: 1000px;
+        display:-ms-flexbox; 
+        display: flex;
+        flex:100%;
+
+
+    }          
+    
+/* coté gauche */
+.infperso1 {
+    width: 300px;
+    background-color:#dce7f5;
+    margin-left: 10px;
+    flex-wrap: 25%;
+    flex: 25%;
+    height: 300px;
+        
+    }
+   
+/* coté droit */
+.inscription{
+
+    flex-wrap: 80%;
+    flex: 80%;
+    background-color: white;
+    height: 1000px;
+}
+
+.form-row{
+  height: 800px;
+  width: 600px;
+  margin-left: 250px;
+  margin-top:30px;
+  border: 3px black solid;
+  background-color:#dce7f5;
+}
+
+.form-group {
+    padding:30px;
+    width: 500px;
+}
+
+input{
+    width: 500px; 
+    height: 40px;
+}
+
+#soumettre{
+    width: 300px;
+}
+
+#bouton{
+        /* background-color: black; */
+        width: 200px; height: 80px;
+        /* margin-top: 50px; */
+        margin-left: 800px;
+
+}
+
+

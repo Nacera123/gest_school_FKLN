@@ -7,6 +7,8 @@ class MainController
 
         include __DIR__. '/../views/header.php';
         include __DIR__. '/../views/'.$viewName.'.php';
+        include __DIR__. '/../views/footer.php';
+
         
 
 

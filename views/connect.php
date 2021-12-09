@@ -26,7 +26,6 @@
 
 
             <?php 
-              session_start();
               if(empty($_POST["email"]) || empty($_POST["mot_de_passe"]))  
               {  
                     $message = '<label>All fields are required</label>';  
