@@ -11,10 +11,10 @@ class Note {
     private $id_professeur;
     private $id_cursus;
     private $id_utilisateur;
-
+    private $id_famille;
 
     // le constructeur
-    public function __construct($id_note, $matiere, $note, $appreciation, $id_etudiant, $id_professeur, $id_cursus,$id_utilisateur)
+    public function __construct($id_note, $matiere, $note, $appreciation, $id_etudiant, $id_professeur, $id_cursus,$id_utilisateur,$id_famille)
     {
         $this-> id_note = $id_note;
         $this-> matiere= $matiere;
@@ -24,6 +24,7 @@ class Note {
         $this-> id_professeur = $id_professeur;
         $this-> id_cursus = $id_cursus;
         $this-> id_utilisateur = $id_utilisateur;
+        $this-> id_famille = $id_famille;
 
     }
 

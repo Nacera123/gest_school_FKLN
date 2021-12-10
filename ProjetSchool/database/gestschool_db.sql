@@ -124,6 +124,37 @@ VALUES ('Dulac','Jean', 'Mathématique',5),
 --        (2, 5),
 --        (2, 6);
 
+-- //............... Famille ............//
+
+
+CREATE TABLE IF NOT EXISTS famille (
+
+  id_famille INTEGER PRIMARY KEY NOT NULL auto_increment,
+  nom_parent varchar(50) NOT NULL,
+  prenom_parent varchar(50) NOT NULL,
+  mobile varchar(50) NOT NULL,
+  adresse varchar(200) NOT NULL,
+  code_postal integer(5) NOT NULL,
+  nom_enfant varchar(50) NOT NULL,
+  prenom_enfant varchar(50) NOT NULL,
+  dn_enfant DATE,
+  id_cursus INTEGER (50) ,
+  id_etudiant INTEGER (50) ,
+  id_utilisateur INTEGER ,
+  FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
+  ON DELETE CASCADE
+) ENGINE InnoDB;
+
+INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant, id_cursus, id_etudiant,id_utilisateur)
+
+VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',1,1,5),
+      ('Souris','Rouge', '07-33-11-09', '3 Av du bonheur', 7501,'Souris','Verte', '2015-11-09',1,2,6);
+
+
 
 
 -- //............... note ............//
@@ -138,7 +169,8 @@ CREATE TABLE IF NOT EXISTS note (
   id_etudiant INTEGER (50),
   id_professeur INTEGER (50),
   id_cursus INTEGER (50),
-  id_utilisateur INTEGER(50)
+  id_utilisateur INTEGER(50),
+  id_famille INTEGER(50),
   FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
   ON DELETE CASCADE,
   FOREIGN KEY (id_professeur) REFERENCES professeur(id_professeur) 
@@ -146,18 +178,20 @@ CREATE TABLE IF NOT EXISTS note (
   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
   ON DELETE CASCADE,
    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
+  ON DELETE CASCADE,
+   FOREIGN KEY (id_famille) REFERENCES famille(id_famille) 
   ON DELETE CASCADE
 ) ENGINE InnoDB;
 
 
 
-INSERT INTO note (matiere, note, appreciation, id_etudiant, id_professeur, id_cursus,id_utilisateur) 
-VALUES ('Mathématique', 10,'Passable', 1, 1,1,2), 
-       ('Science économique et sociale', 11,'Passable', 1, 2, 1,2),
+INSERT INTO note (matiere, note, appreciation, id_etudiant, id_professeur, id_cursus,id_utilisateur,id_famille) 
+VALUES ('Mathématique', 10,'Passable', 1, 1,1,2,1), 
+       ('Science économique et sociale', 11,'Passable', 1, 2, 4,1),
 
          
-      ('Mathématique', 10,'Passable', 2, 1,1,6),
-      ('Science économique et sociale', 16,'Passable', 2, 2, 1,6);
+      ('Mathématique', 10,'Passable', 2, 1,1,6,2),
+      ('Science économique et sociale', 16,'Passable', 2, 2, 4,6,2);
 
       --  ('Mathématique', 17,'Excellent', 5, 1, 2),
 
@@ -215,35 +249,7 @@ VALUES ('Mathématique', 1),
 
 
 
--- //............... Famille ............//
 
-
-CREATE TABLE IF NOT EXISTS famille (
-
-  id_famille INTEGER PRIMARY KEY NOT NULL auto_increment,
-  nom_parent varchar(50) NOT NULL,
-  prenom_parent varchar(50) NOT NULL,
-  mobile varchar(50) NOT NULL,
-  adresse varchar(200) NOT NULL,
-  code_postal integer(5) NOT NULL,
-  nom_enfant varchar(50) NOT NULL,
-  prenom_enfant varchar(50) NOT NULL,
-  dn_enfant DATE,
-  id_cursus INTEGER (50) ,
-  id_etudiant INTEGER (50) ,
-  id_utilisateur INTEGER ,
-  FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
-  ON DELETE CASCADE,
-  FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
-  ON DELETE CASCADE,
-  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
-  ON DELETE CASCADE
-) ENGINE InnoDB;
-
-INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant, id_cursus, id_etudiant,id_utilisateur)
-
-VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',1,1,5),
-      ('Souris','Rouge', '07-33-11-09', '3 Av du bonheur', 7501,'Souris','Verte', '2015-11-09',1,2,6);
       -- ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,'Bourgeois','Samuel', '2015-05-02', 4,2),
       -- ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503, 'Mdou','Mamadou', '2015-02-07', 5,3),
       -- ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'Bourass','Mohamed', '2015-09-11',2,4),

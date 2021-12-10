@@ -147,7 +147,7 @@ public function login() {
         foreach($noteArray as $note) {
             $noteList[] = new Note($note['id_note'], $note['matiere'],$note['note'], 
             $note['appreciation'], $note['id_etudiant'],$note['id_professeur'],
-            $note['id_cursus'],$_SESSION['id_utilisateur']);
+            $note['id_cursus'],$_SESSION['id_utilisateur'],$note['id_famille']);
         }
     
         return $noteList;
@@ -178,6 +178,7 @@ public function login() {
         
         $sql = "SELECT * 
         FROM famille
+        -- INNER JOIN note ON note.id_famille = famille.id_famille
         WHERE id_utilisateur = ". $_SESSION['id_utilisateur'] ;
     
         $familleArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -193,7 +194,23 @@ public function login() {
     }
 
 
-
+    // public function getNote2() {
+    //     $note2List = [];
+        
+    //     $sql = "SELECT *
+    //     FROM note
+    //     INNER JOIN famille ON famille.id_famille = note.id_famille ";
+    
+    //     $note2Array = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
+    //     foreach($note2Array as $notes) {
+    //         $note2List[] = new Note($notes['id_note'], $notes['matiere'],$notes['note'], 
+    //         $notes['appreciation'], $notes['id_etudiant'],$notes['id_professeur'],
+    //         $notes['id_cursus'],$notes['id_utilisateur'],$notes['id_famille']);
+    //     }
+    
+    //     return $note2List;
+    // }
 
 
 }
