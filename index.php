@@ -4,6 +4,12 @@ session_start();
 
 require __DIR__ . './class/cursus.php';
 require __DIR__ . './class/professeur.php';
+require __DIR__ . './class/etudiant.php';
+require __DIR__ . './class/matiere.php';
+require __DIR__ . './class/note.php';
+
+
+
 
 
 require __DIR__ ."./database/db_data.php";
@@ -31,6 +37,7 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
     $controller->connect();
 }else if($url==='/index1'){
     $controller->index1();
+    
 }else if ($url==='/enfant'){
     $controller->enfant();
 

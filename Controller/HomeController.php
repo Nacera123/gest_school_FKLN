@@ -27,8 +27,18 @@ class HomeController extends MainController
     }
 
     public function enfant(){
-        return $this->show('enfant');
-  
+
+        $DBData = new DBData();
+        $etudiantList = $DBData->getEtudiant();
+        $matiereList = $DBData->getmatiere();
+        $noteList = $DBData->getnote();
+        
+        return $this->show('enfant', [
+
+            'etudiantList' => $etudiantList,
+            'matiereList' => $matiereList,
+            'noteList' => $noteList
+        ]);
     }
 
     public function prof(){
@@ -36,13 +46,11 @@ class HomeController extends MainController
         $DBData = new DBData();
         $professeurList = $DBData->getProfesseur();
         $cursusList = $DBData->getformation();
-        $etudiantList = $DBData->getEtudiant();
 
         
         return $this->show('prof',[
             'professeurList' => $professeurList,
-            'cursusList' => $cursusList,
-            'etudiantList' => $etudiantList
+            'cursusList' => $cursusList
 
 
 

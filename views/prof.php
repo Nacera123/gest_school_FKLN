@@ -1,6 +1,4 @@
-
-
- <link rel="stylesheet" href="./css/profs.css">
+<link rel="stylesheet" href="./css/profs.css">
 
 
 
@@ -52,26 +50,6 @@
           
     </div>
 
-
-    <?php
-    
-    if (isset('add')){
-      if(empty('nom')|| empty('prenom')|| empty('matiere')|| empty('moyenne')|| empty('appreciation')){
-
-
-        
-      }
-
-
-    }
-    
-    
-    
-    
-    
-    
-    
-    ?>
 
 
     <div class="inscription">

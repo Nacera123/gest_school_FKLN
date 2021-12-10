@@ -135,51 +135,6 @@ VALUES (1, 1),
        (2, 5),
        (2, 6);
 
-
--- //............... note ............//
-
-DROP TABLE IF EXISTS note ; 
-
-CREATE TABLE IF NOT EXISTS note (
-  id_note INTEGER PRIMARY KEY NOT NULL auto_increment,
-  matiere varchar(50) NOT NULL,
-  note INTEGER(50) NOT NULL,
-  appreciation varchar(50) NOT NULL,
-  id_etudiant INTEGER (50),
-  id_professeur INTEGER (50),
-  id_cursus INTEGER (50),
-  FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
-  ON DELETE CASCADE,
-  FOREIGN KEY (id_professeur) REFERENCES professeur(id_professeur) 
-  ON DELETE CASCADE,
-  FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
-  ON DELETE CASCADE
-) ENGINE InnoDB;
-
-
-
-INSERT INTO note(matiere, note, appreciation, id_etudiant, id_professeur, id_cursus) 
-VALUES ('Mathématique', 10,'Passable', 4, 1,1), 
-       ('Mathématique', 17,'Excellent', 5, 1, 2),
-
-       ('Science économique et sociale', 11,'Passable', 4, 2, 1),
-       ('Science économique et sociale', 14,'Bien', 5, 2, 2),
-
-       ('Physique', 13,'Bien', 4, 3, 1),
-       ('Physique', 15,'Tres bien', 5, 3, 2),
-
-       ('Histoire', 9,'Peu mieux faire', 4, 4, 1),
-       ('Histoire', 11,'Passable', 5, 4, 2),
-
-       ('Géographie', 12,'Bien', 4, 5, 1),
-       ('Géographie', 7,'Peu mieux faire', 5, 5, 2),
-
-       ('Francais', 15,'Bien', 4, 6, 1),
-       ('Francais', 13,'Bien', 5, 6, 2);
-
-
-
-
 -- //............... matiere ............//
 DROP TABLE IF EXISTS matiere ;
 
@@ -195,23 +150,71 @@ CREATE TABLE IF NOT EXISTS matiere (
 INSERT INTO matiere(matiere, id_cursus)
 
 VALUES ('Mathématique', 1),
-       ('Mathématique', 2),
+      --  ('Mathématique', 2),
 
        ('Science économique et sociale', 1),
-       ('Science économique et sociale', 2),
+      --  ('Science économique et sociale', 2),
 
        ('Physique', 1),
-       ('Physique', 2),
+      --  ('Physique', 2),
 
        ('Histoire', 1),
-       ('Histoire', 2),
+      --  ('Histoire', 2),
 
        ('Géographie', 1),
-       ('Géographie', 2),
+      --  ('Géographie', 2),
 
-       ('Francais', 1),
-       ('Francais', 2);
+       ('Francais', 1);
+      --  ('Francais', 2);
 
+-- //............... note ............//
+
+DROP TABLE IF EXISTS note ; 
+
+CREATE TABLE IF NOT EXISTS note (
+  id_note INTEGER PRIMARY KEY NOT NULL auto_increment,
+  id_matiere INTEGER ,
+  -- matiere varchar(50) NOT NULL,
+  note INTEGER(50) NOT NULL,
+  appreciation varchar(50) NOT NULL,
+  id_etudiant INTEGER (50),
+  id_professeur INTEGER (50),
+  id_cursus INTEGER (50),
+  id_utilisateur integer,
+  FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_professeur) REFERENCES professeur(id_professeur) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_matiere) REFERENCES matiere(id_matiere) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
+  ON DELETE CASCADE
+
+
+) ENGINE InnoDB;
+
+
+
+INSERT INTO note(id_matiere, note, appreciation, id_etudiant, id_professeur, id_cursus, id_utilisateur) 
+VALUES (1, 10,'Passable', 4, 1,1,13), 
+       (1, 17,'Excellent', 5, 1, 2,14),
+
+       (2, 11,'Passable', 4, 2, 1,13),
+       (2, 14,'Bien', 5, 2, 2,14),
+
+       (3, 13,'Bien', 4, 3, 1,13),
+       (3, 15,'Tres bien', 5, 3, 2,14),
+
+       (4, 9,'Peu mieux faire', 4, 4, 1,13),
+       (4, 11,'Passable', 5, 4, 2,14),
+
+       (5, 12,'Bien', 4, 5, 1,13),
+       (5, 7,'Peu mieux faire', 5, 5, 2,14),
+
+       (6, 15,'Bien', 4, 6, 1,13),
+       (6, 13,'Bien', 5, 6, 2,14);
 
 
 -- //............... Famille ............//
@@ -249,3 +252,10 @@ VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Mar
 
 
 
+
+
+
+
+
+
+  

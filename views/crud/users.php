@@ -287,7 +287,7 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<td>Id_note</td>
-			<td>MATIERE</td>
+			<td>Id_MATIERE</td>
 			<td>NOTE</td>
 			<td>APPRECIATION</td>
 			<td>Id_etudiant</td>
@@ -305,7 +305,7 @@
 				echo "<tr>";
 
 				echo "<td>".$row['id_note'] . "</td>";
-				echo "<td>".$row['matiere'] . "</td>";
+				echo "<td>".$row['id_matiere'] . "</td>";
 				echo "<td>".$row['note'] . "</td>";
 				echo "<td>".$row['appreciation'] . "</td>";
 				echo "<td>".$row['id_etudiant'] . "</td>";
