@@ -55,7 +55,15 @@ VALUES ('safar', 'fadi','fadi@gmail.com', 'fadi', '07.56.58.56', '10 av de titi'
        ('Bourgeois','Samuel','Samuel@gmail.com', 'Samuel', '07.11.22.56', '15 av de titi', 79420, 'etudiant'),
        ('Mdou','Mamadou','Mamadou@gmail.com', 'Mamadou', '07.11.33.56', '16 av de titi', 79420, 'etudiant'),
        ('Bourass','Mohamed','Mohamed@gmail.com', 'Mohamed', '07.11.44.56', '17 av de titi', 79420, 'etudiant'),
-       ('Wang','Yibo','Yibo@gmail.com', 'Yibo', '07.11.55.56', '18 av de titi', 79420, 'etudiant');
+       ('Wang','Yibo','Yibo@gmail.com', 'Yibo', '07.11.55.56', '18 av de titi', 79420, 'etudiant'),
+
+      --  les parents
+      ('Dubois','Francois', 'francois@gmail.com', 'francois','07-78-11-12', '3 Av du bonheur', 7501,'parent'),
+      ('Bourgeois','Marie', 'Marie@gmail.com','Marie', '07-78-22-12','5 Av du bonheur', 7502, 'parent'),
+      ('Mdou','Halim', 'Halim@gmail.com','Halim', '07-78-33-12', '6 Av du bonheur', 7503,'parent' ),
+      ('Bourass','Samir', 'Samir@gmail.com','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'parent' ),
+      ('Wang','Chang', 'Chang@gmail.com','Chang', '07-78-55-12', '8 Av du bonheur', 7506, 'parent');
+
 
 
 -- //............... etudiant ............//
@@ -232,21 +240,25 @@ CREATE TABLE IF NOT EXISTS famille (
   nom_enfant varchar(50) NOT NULL,
   prenom_enfant varchar(50) NOT NULL,
   dn_enfant DATE,
+  id_utilisateur INTEGER ,
   id_cursus INTEGER (50) ,
   id_etudiant INTEGER (50) ,
   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
   ON DELETE CASCADE,
   FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
+  ON DELETE CASCADE,
+  FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) 
   ON DELETE CASCADE
+
 ) ENGINE InnoDB;
 
-INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant, id_cursus, id_etudiant)
+INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant,id_utilisateur, id_cursus, id_etudiant)
 
-VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',1,1),
-      ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,'Bourgeois','Samuel', '2015-05-02', 4,2),
-      ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503, 'Mdou','Mamadou', '2015-02-07', 5,3),
-      ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'Bourass','Mohamed', '2015-09-11',2,4),
-      ('Wang','Chang', '07-78-55-12', '8 Av du bonheur', 7506, 'Wang','Yibo', '2015-08-06',2,5);
+VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',15, 1,1),
+      ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,'Bourgeois','Samuel', '2015-05-02',16,  4,2),
+      ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503, 'Mdou','Mamadou', '2015-02-07',17,  5,3),
+      ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'Bourass','Mohamed', '2015-09-11',18, 2,4),
+      ('Wang','Chang', '07-78-55-12', '8 Av du bonheur', 7506, 'Wang','Yibo', '2015-08-06',19, 2,5);
 
 
 

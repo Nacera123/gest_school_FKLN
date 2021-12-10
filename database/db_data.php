@@ -57,7 +57,7 @@ class DBData {
         if ($user['fonction'] == 'admin') {
             header('location:indexcrud');		  
         }elseif($user['fonction'] == 'parent') {
-            header('location:index1');    
+            header('location:parent');    
         }elseif($user['fonction'] == 'professeur') {
             header('location:prof'); 
         }elseif($user['fonction'] == 'etudiant') {
@@ -98,15 +98,8 @@ class DBData {
         $professeurList = [];
 
         $sql = "SELECT * from professeur
-        -- professeur a join utilisateur b join 
         where id_utilisateur =" . $_SESSION['id_utilisateur'];
-        
-        // $sql = "SELECT * FROM professeur
-        // JOIN utilisateur ON utilisateur.id_utilisateur = professeur.id_utilisateur
-
-        // WHERE id_utilisateur = ". $_SESSION['id_utilisateur'];
-        
-    
+            
         $professeurArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     
         foreach($professeurArray as $prof) {
@@ -116,6 +109,26 @@ class DBData {
     
         return $professeurList;
     }
+
+    //CLASS Parent
+    public function getParent() {
+        $parentList = [];
+
+        $sql = "SELECT * from famille
+        where id_utilisateur =" . $_SESSION['id_utilisateur'];
+            
+        $parentArray = $this->dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    
+        foreach($parentArray as $parent) {
+            $parentList[] = new Famille($parent['id_famille'], $parent['nom_parent'],
+            $parent['prenom_parent'], $parent['mobile'],$parent['adresse'], $parent['code_postal'],
+            $parent['nom_enfant'], $parent['prenom_enfant'],$parent['dn_enfant'], $parent['id_cursus'],
+            $parent['id_etudiant'],$_SESSION['id_utilisateur']);
+        }
+    
+        return $parentList;
+    }
+
 
     public function getEtudiant() {
         $etudiantList = [];

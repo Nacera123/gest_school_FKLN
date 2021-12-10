@@ -7,6 +7,8 @@ require __DIR__ . './class/professeur.php';
 require __DIR__ . './class/etudiant.php';
 require __DIR__ . './class/matiere.php';
 require __DIR__ . './class/note.php';
+require __DIR__ . './class/famille.php';
+
 
 
 
@@ -35,6 +37,7 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
  
 } elseif($url==='/connexion'){
     $controller->connect();
+
 }else if($url==='/index1'){
     $controller->index1();
     
@@ -43,6 +46,9 @@ if ($url === '/' || $url==='/acceuil') { // Accueil
 
 }else if($url==='/prof'){
     $controller->prof();
+
+}else if($url==='/parent'){
+    $controller->parent();
 
 
 

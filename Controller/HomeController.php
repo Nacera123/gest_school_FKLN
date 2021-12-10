@@ -52,9 +52,26 @@ class HomeController extends MainController
             'professeurList' => $professeurList,
             'cursusList' => $cursusList
 
+        ]);
+
+    }
+
+    public function parent(){
+        $DBData = new DBData();
+        $parentList = $DBData->getParent();
+        $matiereList = $DBData->getmatiere();
+        $noteList = $DBData->getnote();
+
+
+        return $this->show('parent', [
+
+            'parentList' => $parentList,
+            'matiereList' => $matiereList,
+            'noteList' => $noteList
 
 
         ]);
+
 
     }
 
