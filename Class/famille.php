@@ -1,6 +1,6 @@
 <?php
-
-class Famille {
+// class abstract Famille
+class  Famille  {
 
     // Version propriétés privées
     private $id_famille;
@@ -9,31 +9,32 @@ class Famille {
     private $mobile;
     private $adresse;
     private $code_postal;
+
+
+    
     private $nom_enfant;
     private $prenom_enfant;
     private $dn_enfant;
-    private $id_utilisateur;
     private $id_cursus;
     private $id_etudiant;
-
+    private $id_utilisateur;
 
 
 
 
     // le constructeur
-    public function __construct($id_famille, $nom, $prenom, $mobile, $adresse,
-     $code_postal, $nom_enfant, $prenom_enfant,$dn_enfant, $id_utilisateur, $id_cursus,$id_etudiant)
+    public function __construct($id_famille, $nom_parent, $prenom_parent, $mobile, $adresse,
+     $code_postal, $nom_enfant, $prenom_enfant,$dn_enfant, $id_cursus,$id_etudiant, $id_utilisateur)
     {
         $this-> id_famille = $id_famille;
-        $this-> nom= $nom;
-        $this-> prenom = $prenom;
+        $this-> nom_parent= $nom_parent;
+        $this-> prenom_parent = $prenom_parent;
         $this-> mobile = $mobile;
         $this-> adresse = $adresse;
         $this-> code_postal = $code_postal;
         $this-> nom_enfant= $nom_enfant;
         $this-> prenom_enfant = $prenom_enfant;
         $this-> dn_enfant = $dn_enfant;
-        $this-> id_utilisateur = $id_utilisateur;
         $this-> id_cursus = $id_cursus;
         $this-> id_etudiant = $id_etudiant;
         $this-> id_utilisateur = $id_utilisateur;
@@ -56,12 +57,12 @@ class Famille {
     //get set pour la nom
     public function getnomU()
     {
-        return $this-> nom;
+        return $this-> nom_parent;
     }
-    public function setnomU($nom): self
+    public function setnomU($nom_parent): self
     {
-        if(is_string($nom)) {
-            $this->nom = $nom;
+        if(is_string($nom_parent)) {
+            $this->nom_parent= $nom_parent;
         }
 
         return $this;
@@ -71,13 +72,13 @@ class Famille {
     //get set pour lE prenom
     public function getprenomU()
     {
-        return $this-> prenom;
+        return $this-> prenom_parent;
     }
 
-    public function setprenomU($prenom): self
+    public function setprenomU($prenom_parent): self
     {
-        if(is_string($prenom)) {
-            $this->prenom = $prenom;
+        if(is_string($prenom_parent)) {
+            $this->prenom_parent = $prenom_parent;
         }
 
         return $this;
@@ -165,7 +166,7 @@ class Famille {
 
 
 
-    //get set pour la fonction
+    //get set pour la date de naissance
     public function getdnEnf()
     {
         return $this->dn_enfant;
@@ -176,6 +177,39 @@ class Famille {
     {
         if(is_string($dn_enfant)) {
             $this->dn_enfant = $dn_enfant;
+        }
+
+        return $this;
+    }
+    //get set pour id_cursus
+
+    public function getidcursusF()
+    {
+        return $this->id_cursus;
+    }
+
+
+    public function setidcursusF($id_cursus): self
+    {
+        if(is_string($id_cursus)) {
+            $this->id_cursus = $id_cursus;
+        }
+
+        return $this;
+    }
+
+    
+    //get set pour id_etudiant
+    public function getidetudiantF()
+    {
+        return $this->id_etudiant;
+    }
+
+
+    public function setidetudiantF($id_etudiant): self
+    {
+        if(is_string($id_etudiant)) {
+            $this->id_etudiant = $id_etudiant;
         }
 
         return $this;
@@ -197,36 +231,5 @@ class Famille {
         return $this;
     }
     
-
-
-    public function getidcursusF()
-    {
-        return $this->id_cursus;
-    }
-
-
-    public function setidcursusF($id_cursus): self
-    {
-        if(is_string($id_cursus)) {
-            $this->id_cursus = $id_cursus;
-        }
-
-        return $this;
-    }
-
-    public function getidetudiantF()
-    {
-        return $this->id_etudiant;
-    }
-
-
-    public function setidetudiantF($id_etudiant): self
-    {
-        if(is_string($id_etudiant)) {
-            $this->id_etudiant = $id_etudiant;
-        }
-
-        return $this;
-    }
 
 }

@@ -96,8 +96,8 @@
     border: solid ;
     border-width:thick; 
     border-color:#2C74FF ;
-    margin-left: 50px;
-    margin-right: 50px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
 }
 
 
@@ -259,3 +259,4 @@
       display :50%;
       float : right;
   }
+

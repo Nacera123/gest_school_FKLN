@@ -18,24 +18,28 @@
       </div>
     </div>
 </div>
-
+<?php
+    var_dump ($_SESSION['id_utilisateur']);  
+    ?>
 
 <div class="bienvenue">
-  <h5><b>EVALUATION DES ELEVES<b><h5>
+  <?php foreach ($viewVars['etudiantList'] as $etudiant) :?>
+      <h2> BIENVENUE <?= $etudiant-> getnomE() ?> / <?= $etudiant-> getprenomE()?> DANS TON ESPACE PERSONNEL</h2>
+    <?php endforeach?>
+  <!-- <h5><b>EVALUATION DES ELEVES<b><h5> -->
 </div> 
    
 <div class = "infperso1">
+
     <br><h5>Mes informations personnelles</h5><br><br>
-  
     <?php foreach ($viewVars['etudiantList'] as $etudiant) : ?>
       <li> NOM : <?= $etudiant-> getnomE()?></li>
       <li> PRENOM : <?= $etudiant-> getprenomE()?></li>
       <li> DATE DE NAISSANCE : <?= $etudiant-> getdate_naissanceE()?></li>
-      <li> CURSUS : <?= $etudiant-> getid_cursusE()?></li>
-    <?php endforeach; ?>        
+      <li> id_etudiant : <?= $etudiant-> getid_cursusE()?></li>
+    <?php endforeach;?>        
 </div>
-
-  <div id="a">
+<div id="a">
     <div id="b">
       <div id="e"><h1>matiere</h1></div><hr>
 
@@ -49,7 +53,7 @@
       <div id="e"><h2>moyenne</h2></div><hr>
 
       <?php foreach ($viewVars['noteList'] as $note) : ?>
-        <br><div id="e"><h3><?= $note-> getnoteN()?></h3></div>
+        <br><div id="e"><h3><?= $note-> getnoteN()?> </h3></div>
       <?php endforeach; ?>
 
     </div>

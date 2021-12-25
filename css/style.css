@@ -114,8 +114,11 @@ padding-top: 30px;
     border: solid ;
     border-width:thick; 
     border-color:#2C74FF ;
-    margin-left: 50px;
-    margin-right: 50px;
+    /* margin-left: 50px;
+    margin-right: 50px; */
+    -ms-flex: 100%; /* IE10 */
+    flex: 100%;
+
 }
 
 
@@ -128,7 +131,7 @@ padding-top: 30px;
 
 .bloc-verbatim { 
     padding-top: 90px; 
-    padding-right: 10px; 
+    /* padding-right: 10px;  */
     -ms-flex: 56%; /* IE10 */
     flex: 56%;
     background-color: white;
@@ -207,3 +210,8 @@ margin : 2px;
     width: 400px;
     text-align: center;
 }
+
+
+/*............... Page enfant - parent - professeur...........*/
+
+

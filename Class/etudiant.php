@@ -7,18 +7,20 @@ class Etudiant {
     private $nom;
     private $prenom;
     private $date_naissance;
+    private $cursus;
     private $id_utilisateur;
     private $id_cursus;
 
 
 
     // le constructeur
-    public function __construct($id_etudiant, $nom, $prenom, $date_naissance, $id_utilisateur, $id_cursus)
+    public function __construct($id_etudiant, $nom, $prenom, $date_naissance, $cursus, $id_utilisateur, $id_cursus)
     {
         $this-> id_etudiant = $id_etudiant;
         $this-> nom = $nom;
         $this-> prenom = $prenom;
         $this-> date_naissance = $date_naissance;
+        $this-> cursus = $cursus;
         $this-> id_utilisateur = $id_utilisateur;
         $this-> id_cursus = $id_cursus;
 
@@ -87,7 +89,42 @@ class Etudiant {
     }
 
 
-    //get set pour le prenom
+    //get set pour le cursus
+
+    public function getcursus()
+    {
+        return $this->cursus;
+    }
+
+
+    public function setcursus($cursus): self
+    {
+        if(is_string($cursus)) {
+            $this->cursus = $cursus;
+        }
+
+        return $this;
+    }
+
+    //get set pour l'id utilisateur
+
+    public function getidutilisateurE()
+    {
+        return $this-> id_utilisateur;
+    }
+
+
+    public function setidutilisateurE($id_utilisateur): self
+    {
+        if(is_string($id_utilisateur)) {
+            $this->id_utilisateur = $id_utilisateur;
+        }
+
+        return $this;
+    }
+
+
+
     public function getid_cursusE()
     {
         return $this->id_cursus;
@@ -103,21 +140,6 @@ class Etudiant {
         return $this;
     }
 
-
-    public function getidutilisateurE()
-    {
-        return $this-> cursus;
-    }
-
-
-    public function setidutilisateurE($cursus): self
-    {
-        if(is_string($cursus)) {
-            $this->cursus = $cursus;
-        }
-
-        return $this;
-    }
 
     
 }

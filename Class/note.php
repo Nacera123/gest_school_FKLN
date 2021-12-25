@@ -10,11 +10,12 @@ class Note {
     private $id_etudiant;
     private $id_professeur;
     private $id_cursus;
+    private $matiere;
 
 
 
     // le constructeur
-    public function __construct($id_note, $id_matiere, $note, $appreciation, $id_etudiant, $id_professeur, $id_cursus)
+    public function __construct($id_note, $id_matiere, $note, $appreciation, $id_etudiant, $id_professeur, $id_cursus, $matiere)
     {
         $this-> id_note = $id_note;
         $this-> id_matiere= $id_matiere;
@@ -23,6 +24,8 @@ class Note {
         $this-> id_etudiant = $id_etudiant;
         $this-> id_professeur = $id_professeur;
         $this-> id_cursus = $id_cursus;
+        $this-> matiere = $matiere;
+
 
 
     }
@@ -136,5 +139,22 @@ class Note {
 
         return $this;
     }
+    
+
+        //get set pour la metiere
+        public function getmetiere()
+        {
+            return $this->metiere;
+        }
+    
+    
+        public function setmetiere($metiere): self
+        {
+            if(is_string($metiere)) {
+                $this->metiere = $metiere;
+            }
+    
+            return $this;
+        }
     
 }

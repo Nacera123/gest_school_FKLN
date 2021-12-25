@@ -27,6 +27,7 @@
 		<td>nom_cursus</td>
 		<td>frais_cursus</td>
 
+
 		<td width="70px">Supprimer</td>
 		<td width="70px">Modifier</td>
 	</tr>
@@ -40,6 +41,7 @@
 			echo "<td>".$row['id_cursus'] . "</td>";
 			echo "<td>".$row['nom_cursus'] . "</td>";
 			echo "<td>".$row['frais_cursus'] . "</td>";
+
 
 			echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger' /></td>";  
 			echo "<td><a href='editcursus?id=".$row['id_cursus']."' class='btn btn-info'>Edit</a></td>";
@@ -89,6 +91,8 @@
 		<td>DATE DE NAISSANCE</td>
 		<td>CURSUS</td>
 		<td>Id_cursus</td>
+		<td>Id_utilisateur</td>
+
 
 		<td width="70px">Supprimer</td>
 		<td width="70px">Modifier</td>
@@ -106,6 +110,8 @@
 			echo "<td>".$row['date_naissance'] . "</td>";
 			echo "<td>".$row['cursus'] . "</td>";
 			echo "<td>".$row['id_cursus'] . "</td>";
+			echo "<td>".$row['id_utilisateur'] . "</td>";
+
 					
 			echo "<td><input type='submit' name='delete1' value='Delete' class='btn btn-danger' /></td>";  
 			echo "<td><a href='editetudiant?id=".$row['id_etudiant']."' class='btn btn-info'>Edit</a></td>";
@@ -159,6 +165,8 @@
 			<td>NOM</td>
 			<td>PRENOM</td>
 			<td>MATIERE</td>
+			<td>id_utilisateur</td>
+
 
 			<td width="70px">Supprimer</td>
 			<td width="70px">Modifier</td>
@@ -174,6 +182,8 @@
 				echo "<td>".$row['nom'] . "</td>";
 				echo "<td>".$row['prenom'] . "</td>";
 				echo "<td>".$row['matiere'] . "</td>";
+				echo "<td>".$row['id_utilisateur'] . "</td>";
+
 				
 				echo "<td><input type='submit' name='delete2' value='Delete' class='btn btn-danger' /></td>";  
 				echo "<td><a href='editprofesseur?id=".$row['id_professeur']."' class='btn btn-info'>Edit</a></td>";
@@ -509,7 +519,7 @@
 			<td> DATE DE NAISSANCE DE L'ENFANT</td>
 			<td>Id_cursus</td>
 			<td>Id_Etudiant</td>
-
+			<td>id_utilisateur</td>
 
 
 			<td width="70px">Supprimer</td>
@@ -533,7 +543,7 @@
 				echo "<td>".$row['dn_enfant'] . "</td>";
 				echo "<td>".$row['id_cursus'] . "</td>";
 				echo "<td>".$row['id_etudiant'] . "</td>";
-
+				echo "<td>".$row['id_utilisateur'] . "</td>";
 
 
 				

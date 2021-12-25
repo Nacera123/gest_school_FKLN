@@ -2,6 +2,7 @@ create database if not exists gestschool_FKLN DEFAULT CHARACTER SET utf8 COLLATE
 USE gestschool_FKLN;
 
 -- //............... cursus .............//
+DROP TABLE IF EXISTS cursus ; 
 
 CREATE TABLE IF NOT EXISTS cursus(
   id_cursus INTEGER PRIMARY KEY NOT NULL auto_increment,
@@ -226,6 +227,7 @@ VALUES (1, 10,'Passable', 4, 1,1,13),
 
 
 -- //............... Famille ............//
+DROP TABLE IF EXISTS famille ; 
 
 
 CREATE TABLE IF NOT EXISTS famille (
@@ -240,9 +242,10 @@ CREATE TABLE IF NOT EXISTS famille (
   nom_enfant varchar(50) NOT NULL,
   prenom_enfant varchar(50) NOT NULL,
   dn_enfant DATE,
-  id_utilisateur INTEGER ,
   id_cursus INTEGER (50) ,
   id_etudiant INTEGER (50) ,
+  id_utilisateur INTEGER ,
+
   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
   ON DELETE CASCADE,
   FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
@@ -252,14 +255,51 @@ CREATE TABLE IF NOT EXISTS famille (
 
 ) ENGINE InnoDB;
 
-INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant,id_utilisateur, id_cursus, id_etudiant)
+INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, nom_enfant, prenom_enfant, dn_enfant, id_cursus, id_etudiant,id_utilisateur)
 
-VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11',15, 1,1),
-      ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,'Bourgeois','Samuel', '2015-05-02',16,  4,2),
-      ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503, 'Mdou','Mamadou', '2015-02-07',17,  5,3),
-      ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'Bourass','Mohamed', '2015-09-11',18, 2,4),
-      ('Wang','Chang', '07-78-55-12', '8 Av du bonheur', 7506, 'Wang','Yibo', '2015-08-06',19, 2,5);
+VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,'Dubois','Martin', '2015-11-11', 1,1,15),
+      ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,'Bourgeois','Samuel', '2015-05-02',  4,2,16),
+      ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503, 'Mdou','Mamadou', '2015-02-07',  5,3,17),
+      ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505, 'Bourass','Mohamed', '2015-09-11', 2,4,18),
+      ('Wang','Chang', '07-78-55-12', '8 Av du bonheur', 7506, 'Wang','Yibo', '2015-08-06', 2,5,19);
 
+
+-- CREATE TABLE IF NOT EXISTS famille (
+--   -- //famille
+--   id_famille INTEGER PRIMARY KEY NOT NULL auto_increment,
+--   nom_parent varchar(50) NOT NULL,
+--   prenom_parent varchar(50) NOT NULL,
+--   mobile varchar(50) NOT NULL,
+--   adresse varchar(200) NOT NULL,
+--   code_postal integer(5) NOT NULL,
+--   id_utilisateurfamille INTEGER,
+
+--   FOREIGN KEY (id_utilisateurfamille) REFERENCES utilisateur(id_utilisateur) 
+--   ON DELETE CASCADE,
+
+
+--   -- enfant
+--   id_etudiant INTEGER (50) ,
+--   nom varchar(50) NOT NULL,
+--   prenom varchar(50) NOT NULL,
+--   date_naissance DATE,
+--   id_utilisateur INTEGER ,
+--   id_cursus INTEGER (50) ,
+--   FOREIGN KEY (id_cursus) REFERENCES cursus(id_cursus) 
+--   ON DELETE CASCADE,
+--   FOREIGN KEY (id_etudiant) REFERENCES etudiant(id_etudiant) 
+--   ON DELETE CASCADE
+
+-- ) ENGINE InnoDB;
+
+-- INSERT INTO famille (nom_parent, prenom_parent, mobile, adresse, code_postal, id_utilisateurfamille,id_etudiant,
+--  nom, prenom, date_naissance,id_utilisateur, id_cursus)
+
+-- VALUES('Dubois','Francois', '07-78-11-12', '3 Av du bonheur', 7501,15,1,'Dubois','Martin', '2015-11-11',10,1),
+--       ('Bourgeois','Marie', '07-78-22-12','5 Av du bonheur', 7502,16,2,'Bourgeois','Samuel', '2015-05-02', 11,4),
+--       ('Mdou','Halim', '07-78-33-12', '6 Av du bonheur', 7503,17, 3,'Mdou','Mamadou', '2015-02-07',  12,5),
+--       ('Bourass','Samir', '07-78-44-12', '7 Av du bonheur', 7505,18,4, 'Bourass','Mohamed', '2015-09-11', 13,2),
+--       ('Wang','Chang', '07-78-55-12', '8 Av du bonheur', 7506, 19,5,'Wang','Yibo', '2015-08-06',14,2);
 
 
 

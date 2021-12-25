@@ -7,9 +7,9 @@ class HomeController extends MainController
     {
         $DBData = new DBData();
         $cursusList = $DBData->getformation() ;
-
         return $this->show('index1', [
-            'cursusList' => $cursusList
+            'cursusList' => $cursusList,
+
         ]);
     }
 
@@ -18,13 +18,26 @@ class HomeController extends MainController
     }
 
     public function connect(){
-        return $this->show('connect');
+
+        
+        return $this->show('connectvalid');
     }
+
+    public function connexion(){
+        return $this->show('connexion');
+    }
+
 
     public function index1(){
         return $this->show('index1');
         
     }
+
+    public function test(){
+        return $this->show('test');
+        
+    }
+
 
     public function enfant(){
 
@@ -41,33 +54,64 @@ class HomeController extends MainController
         ]);
     }
 
+
+    public function enfantv(){
+
+        $DBData = new DBData();
+        $cursusList = $DBData->getformation() ;
+
+        return $this->show('enfantv', [
+            'cursusList' => $cursusList
+        ]);
+
+    }
+
+
+
     public function prof(){
 
         $DBData = new DBData();
         $professeurList = $DBData->getProfesseur();
         $cursusList = $DBData->getformation();
+        $matiereList1 = $DBData-> getmatiere1();
+        $etudiantprofList = $DBData-> getetudiantprof();
 
-        
+
         return $this->show('prof',[
             'professeurList' => $professeurList,
-            'cursusList' => $cursusList
+            'cursusList' => $cursusList,
+            'matiereList1' => $matiereList1,
+            'etudiantprofList' => $etudiantprofList,
 
         ]);
+
+    }
+
+    public function profv(){
+
+        $DBData = new DBData();
+        $vu_matiereList = $DBData->getvu_matiere();
+
+        return $this->show('profv', [
+            'vu_matiereList' => $vu_matiereList,
+        ]);
+
 
     }
 
     public function parent(){
         $DBData = new DBData();
         $parentList = $DBData->getParent();
-        $matiereList = $DBData->getmatiere();
-        $noteList = $DBData->getnote();
-
+        $matiereList1 = $DBData->getmatiereparent() ;
+        $noteList1 = $DBData->getnoteparent();
+        $utilisateurList1 = $DBData->getutilisateur1();
 
         return $this->show('parent', [
 
             'parentList' => $parentList,
-            'matiereList' => $matiereList,
-            'noteList' => $noteList
+            'matiereList1' => $matiereList1,
+            'noteList1' => $noteList1,
+            'utilisateurList1' => $utilisateurList1,
 
 
         ]);
@@ -75,7 +119,21 @@ class HomeController extends MainController
 
     }
 
+    public function Parentsv(){
 
+        $DBData = new DBData();
+        $cursusList = $DBData->getformation();
+        $utilisateurList = $DBData->getutilisateur();
+        $utilisateurList1 = $DBData->getutilisateur1();
+
+        return $this->show('Parentsv', [
+            'cursusList' => $cursusList,
+            'utilisateurList' => $utilisateurList,
+            'utilisateurList1' => $utilisateurList1,
+
+        ]);
+        
+    }
 
     //CRUD
 
